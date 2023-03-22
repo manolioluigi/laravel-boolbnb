@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ApartmentController;
+use App\Http\Controllers\Admin\MessageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,7 @@ Route::middleware(['auth', 'verified'])
             return view('dashboard');
         })->name('dashboard');
         Route::resource('/apartments', ApartmentController::class)->parameters(['apartments'=>'apartment:slug']);
+        Route::resource('/messages', MessageController::class)->parameters(['messages' => 'message:id']);
 });
 
 Route::get('/', function () {
