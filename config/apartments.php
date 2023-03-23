@@ -2,14 +2,6 @@
 return $apartment =
     [
         [
-<<<<<<< HEAD
-            'title' => "",
-            'description' => "",
-            'room_n' => "",
-            'bed_n' => "",
-            'bath_n' => "",
-            'square_meters' => "",
-=======
             'title' => "La Stalla - Casa San Gabriel",
             'description' => "Cottage con 1 camera da letto situato nella proprietà di Casa San Gabriel, immerso nella splendida campagna umbra, ha accesso agli ampi giardini e alla piscina. Il cottage è un completo self catering studio cottage con 1 letto matrimoniale o due letti singoli e aria condizionata.
             Lo spazio
@@ -70,17 +62,13 @@ return $apartment =
             'room_n' => "6",
             'bed_n' => "2",
             'bath_n' => "2",
-            'square_meters' => "100",
->>>>>>> 77de55e971eef7882dff8717a4121590410f07c4
+            'square_meters' => "100"
             'visible' => true,
             'address' => "",
             'latitude' => "",
             'longitude' => "",
             'cover_image' => "",
         ],
-<<<<<<< HEAD
-    ];
-=======
         [
             'title' => "Nurdachhaus Marie nella Foresta Nera",
             'description' => "Rendi la tua vacanza un'esperienza molto speciale e indimenticabile in un Nurdachhaus nella Foresta Nera.
@@ -108,8 +96,46 @@ return $apartment =
             'longitude' => "",
             'cover_image' => "https://a0.muscache.com/im/pictures/miso/Hosting-4971155/original/983adc0c-ce92-4138-9d23-81f5abe2d12e.jpeg?im_w=1200",
         ],
-    ]
+        [
+            'title' => "Archi Projekt",
+            'description' => "L'appartamento è arredato in stile moderno con un tocco di ornamento tradizionale highlander. ",
+            'room_n' => "2",
+            'bed_n' => "2",
+            'bath_n' => "1.5",
+            'square_meters' => "40",
+            'visible' => true,
+            'address' => "Via Roma 2",
+            'latitude' => "",
+            'longitude' => "",
+            'cover_image' => "https://a0.muscache.com/im/pictures/ca15c4af-9ec8-4cb7-bdae-6b6a419729bc.jpg?im_w=960",
+        ],
+        [
+            'title' => "Anna Chalet di pini",
+            'description' => " L'intera struttura è tua per il soggiorno con divertimento per ogni fascia d'età. Da un parco giochi per bambini a una vasca idromassaggio dotata di getti idromassaggio, un'area salotto, barbecue e molto altro",
+            'room_n' => "4",
+            'bed_n' => "7",
+            'bath_n' => "2",
+            'square_meters' => "82",
+            'visible' => true,
+            'address' => "Via Firenze 4",
+            'latitude' => "",
+            'longitude' => "",
+            'cover_image' => "https://a0.muscache.com/im/pictures/852913e9-4636-4c0b-b3d0-070519b39dfb.jpg?im_w=960",
+        ],
+        [
+            'title' => "Settle Poli - Cottage 4",
+            'description' => "Nell'insediamento troverai 5 case di tipo islandese. Ogni cottage dispone di una terrazza con zona salotto e barbecue. I cottage sono completamente attrezzati, compreso l'accesso separato al wifi, rendendo facile connettersi con il lavoro a distanza. ",
+            'room_n' => "2",
+            'bed_n' => "1",
+            'bath_n' => "1",
+            'square_meters' => "32",
+            'visible' => true,
+            'address' => "Via Genova 6",
+            'latitude' => "",
+            'longitude' => "",
+            'cover_image' => "https://a0.muscache.com/im/pictures/miso/Hosting-51814051/original/82e5d74c-8c06-492c-945e-ebb34274e6d4.jpeg?im_w=960",
+        ]
+    ];
 
 ?>
 
->>>>>>> 77de55e971eef7882dff8717a4121590410f07c4
