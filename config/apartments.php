@@ -1,19 +1,43 @@
 <?php
-    return $apartment =
+return $apartment =
     [
         [
-            'title' => "",
-            'description' => "",
-            'room_n' => "",
-            'bed_n' => "",
-            'bath_n' => "",
-            'square_meters' => "",
+            'title' => "Archi Projekt",
+            'description' => "L'appartamento è arredato in stile moderno con un tocco di ornamento tradizionale highlander",
+            'room_n' => "2",
+            'bed_n' => "2",
+            'bath_n' => "1.5",
+            'square_meters' => "40",
             'visible' => true,
-            'address' => "",
+            'address' => "via Roma",
             'latitude' => "",
             'longitude' => "",
-            'cover_image' => "",
+            'cover_image' => "https://a0.muscache.com/im/pictures/ca15c4af-9ec8-4cb7-bdae-6b6a419729bc.jpg?im_w=1200",
         ],
-    ]
-
-?>
+        [
+            'title' => "Anna Chalet di pini",
+            'description' => "Da un parco giochi per bambini a una vasca idromassaggio dotata di getti idromassaggio, un'area salotto, barbecue e molto altro",
+            'room_n' => "4",
+            'bed_n' => "7",
+            'bath_n' => "2",
+            'square_meters' => "82",
+            'visible' => true,
+            'address' => "via Firenze",
+            'latitude' => "",
+            'longitude' => "",
+            'cover_image' => "https://a0.muscache.com/im/pictures/852913e9-4636-4c0b-b3d0-070519b39dfb.jpg?im_w=960",
+        ],
+        [
+            'title' => "Anna Chalet di pini",
+            'description' => "Nell'insediamento troverai 5 case di tipo islandese. Ogni cottage dispone di una terrazza con zona salotto e barbecue. I cottage sono completamente attrezzati, compreso l'accesso separato al wifi, rendendo facile connettersi con il lavoro a distanza.",
+            'room_n' => "1",
+            'bed_n' => "1",
+            'bath_n' => "1",
+            'square_meters' => "35",
+            'visible' => true,
+            'address' => "via Genova",
+            'latitude' => "",
+            'longitude' => "",
+            'cover_image' => "https://a0.muscache.com/im/pictures/miso/Hosting-51814051/original/82e5d74c-8c06-492c-945e-ebb34274e6d4.jpeg?im_w=960",
+        ],
+    ];
