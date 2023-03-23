@@ -16,10 +16,10 @@
             </div>
             <div class="col-12 my-5">
                 <div>
-                    <img src="{{ asset('storage/'.$apartment->cover_image) }}" alt="{{$apartment->title}}" class="w-50">
+                    <img src="{{ $apartment->cover_image }}" alt="{{$apartment->title}}" class="w-50">
                 </div>
                 <p><strong>Slug: </strong>{{ $apartment->slug }}</p>
-                <label class="d-block"><strong>Contenuto:</strong></label>
+                <label class="d-block"><strong>Descrizione appartamento:</strong></label>
                 <p>{{ $apartment->description }}</p>
                 <p><strong>Numero camere: </strong>{{ $apartment->room_n }}</p>
                 <p><strong>Numero camere da letto: </strong>{{ $apartment->bed_n }}</p>
