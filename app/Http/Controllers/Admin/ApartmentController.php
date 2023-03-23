@@ -1,10 +1,19 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Models\Apartment;
+
+use Illuminate\Facades\Auth;
+use Illuminate\Facades\Storage;
+
 use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
+
+use App\Models\Optional;
+use App\Models\Sponsorship;
+use App\Models\Image;
+use App\Models\Message;
 
 class ApartmentController extends Controller
 {
@@ -15,7 +24,8 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-        //
+        $apartments = Apartment::all();
+        return vieW('admin.apartments.index', compact('apartments'));
     }
 
     /**
