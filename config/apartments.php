@@ -1,7 +1,15 @@
 <?php
-    return $apartment =
+return $apartment =
     [
         [
+<<<<<<< HEAD
+            'title' => "",
+            'description' => "",
+            'room_n' => "",
+            'bed_n' => "",
+            'bath_n' => "",
+            'square_meters' => "",
+=======
             'title' => "La Stalla - Casa San Gabriel",
             'description' => "Cottage con 1 camera da letto situato nella proprietà di Casa San Gabriel, immerso nella splendida campagna umbra, ha accesso agli ampi giardini e alla piscina. Il cottage è un completo self catering studio cottage con 1 letto matrimoniale o due letti singoli e aria condizionata.
             Lo spazio
@@ -63,12 +71,16 @@
             'bed_n' => "2",
             'bath_n' => "2",
             'square_meters' => "100",
+>>>>>>> 77de55e971eef7882dff8717a4121590410f07c4
             'visible' => true,
-            'address' => "Okuizumo, Nita District, Prefettura di Shimane, Giappone",
+            'address' => "",
             'latitude' => "",
             'longitude' => "",
-            'cover_image' => "https://a0.muscache.com/im/pictures/40222820/44f9ed81_original.jpg?im_w=1200",
+            'cover_image' => "",
         ],
+<<<<<<< HEAD
+    ];
+=======
         [
             'title' => "Nurdachhaus Marie nella Foresta Nera",
             'description' => "Rendi la tua vacanza un'esperienza molto speciale e indimenticabile in un Nurdachhaus nella Foresta Nera.
@@ -101,3 +113,4 @@
 
 ?>
 
+>>>>>>> 77de55e971eef7882dff8717a4121590410f07c4
