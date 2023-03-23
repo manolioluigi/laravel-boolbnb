@@ -62,7 +62,7 @@ return $apartment =
             'room_n' => "6",
             'bed_n' => "2",
             'bath_n' => "2",
-            'square_meters' => "100"
+            'square_meters' => "100",
             'visible' => true,
             'address' => "",
             'latitude' => "",
@@ -96,6 +96,7 @@ return $apartment =
             'longitude' => "",
             'cover_image' => "https://a0.muscache.com/im/pictures/miso/Hosting-4971155/original/983adc0c-ce92-4138-9d23-81f5abe2d12e.jpeg?im_w=1200",
         ],
+
         [
             'title' => "Archi Projekt",
             'description' => "L'appartamento è arredato in stile moderno con un tocco di ornamento tradizionale highlander. ",
