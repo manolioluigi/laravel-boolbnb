@@ -21,7 +21,7 @@ return $apartment =
             'address' => "Via della Conciliazionea 10, 00193 Roma RM",
             'latitude' => "",
             'longitude' => "",
-            'cover_image' => "https://a0.muscache.com/im/pictures/2d502704-5db1-47c0-bfee-3816d04743fb.jpg?im_w=1440",
+            'cover_img' => "https://a0.muscache.com/im/pictures/2d502704-5db1-47c0-bfee-3816d04743fb.jpg?im_w=1440",
         ],
         [
             'title' => "Limonaia, villa di lusso con piscina in costiera amalfitana",
