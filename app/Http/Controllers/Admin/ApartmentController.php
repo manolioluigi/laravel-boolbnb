@@ -9,6 +9,7 @@ use Illuminate\Facades\Storage;
 
 use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
+use App\Http\Controllers\Controller;
 
 use App\Models\Optional;
 use App\Models\Sponsorship;
