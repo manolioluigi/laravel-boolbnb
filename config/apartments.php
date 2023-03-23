@@ -83,6 +83,7 @@
             'longitude' => "",
             'cover_image' => "https://a0.muscache.com/im/pictures/miso/Hosting-50503787/original/15230787-28ca-4405-a89d-968f324d4c93.jpeg?im_w=1200",
         ],
+
         [
             'title' => "La Calcara. Spiaggia privata",
             'description' => "Villa panoramica in  tenuta di ettari  vista panoramica sulla baia di Amalfi.  La pulizia a brillo e la disinfezione di tutte le superfici sono il nostro forte, controllare le recensioni precedenti. Massima sicurezza da contagi  con spiaggia privata, grande piscina marina e consegna di cibo. Decorazioni interne in stile mediterraneo.  Adatta ai bambini, privacy, ampi terreni. 6 camere da letto 7 bagni, parcheggio per 5 veicoli. Su richiesta cucina, per cena, pranzo e colazione",
