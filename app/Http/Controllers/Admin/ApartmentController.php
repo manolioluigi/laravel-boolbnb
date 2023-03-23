@@ -97,7 +97,7 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
 
-        $apartment->optionals()->sync([]);
+        $apartment->optionals()->sync();
 
         $apartment->delete();
 
