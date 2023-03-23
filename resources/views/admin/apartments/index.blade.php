@@ -6,7 +6,7 @@
             <div class="col-12 my-3">
                 <div class="d-flex justify-content-between">
                     <div>
-                        <h1>ELENCO POST</h1>
+                        <h2>ELENCO APPARTAMENTI</h2>
                     </div>
                     <div>
                         <a class="btn btn-primary" href="{{route('admin.apartments.create')}}">Aggiungi Post</a>
