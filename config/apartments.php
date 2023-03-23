@@ -135,7 +135,7 @@ return $apartment =
             'latitude' => "",
             'longitude' => "",
             'cover_image' => "https://a0.muscache.com/im/pictures/miso/Hosting-51814051/original/82e5d74c-8c06-492c-945e-ebb34274e6d4.jpeg?im_w=960",
-        ]
+        ],
     ];
 
 ?>

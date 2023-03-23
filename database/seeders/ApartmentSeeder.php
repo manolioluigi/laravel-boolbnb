@@ -19,17 +19,17 @@ class ApartmentSeeder extends Seeder
 
         foreach ($apartments as $apartment) {
             $newApartment = new Apartment();
-            $newApartment->title = $apartments['title'];
-            $newApartment->description = $apartments['description'];
-            $newApartment->room_n = $apartments['room_n'];
-            $newApartment->bed_n = $apartments['bed_n'];
-            $newApartment->bath_n = $apartments['bath_n'];
-            $newApartment->square_meters = $apartments['square_meters'];
-            $newApartment->visible = $apartments['visible'];
-            $newApartment->address = $apartments['address'];
-            $newApartment->latitude = $apartments['latitude'];
-            $newApartment->longitude = $apartments['longitude'];
-            $newApartment->cover_image = $apartments['cover_image'];
+            $newApartment->title = $apartment['title'];
+            $newApartment->description = $apartment['description'];
+            $newApartment->room_n = $apartment['room_n'];
+            $newApartment->bed_n = $apartment['bed_n'];
+            $newApartment->bath_n = $apartment['bath_n'];
+            $newApartment->square_meters = $apartment['square_meters'];
+            $newApartment->visible = $apartment['visible'];
+            $newApartment->address = $apartment['address'];
+            $newApartment->latitude = $apartment['latitude'];
+            $newApartment->longitude = $apartment['longitude'];
+            $newApartment->cover_img = $apartment['cover_image'];
             $newApartment->slug = Apartment::generateSlug($newApartment->title);
             $newApartment->save();
         }
