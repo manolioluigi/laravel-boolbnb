@@ -16,7 +16,7 @@
             </div>
             <div class="col-12 my-5">
                 <div>
-                    <img src="{{ $apartment->cover_image }}" alt="{{$apartment->title}}" class="w-50">
+                    <img src="{{ $apartment->cover_img }}" alt="{{$apartment->title}}" class="w-50">
                 </div>
                 <p><strong>Slug: </strong>{{ $apartment->slug }}</p>
                 <label class="d-block"><strong>Descrizione appartamento:</strong></label>
