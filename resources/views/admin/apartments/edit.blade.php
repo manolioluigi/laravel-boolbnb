@@ -15,12 +15,12 @@
                 </div>
             </div>
             <div class="col-12">
-                <form action="{{route('admin.apartments.update', $apartments->slug)}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('admin.apartments.update', $apartment->slug)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group my-2">
                         <label class="control-label">Titolo</label>
-                        <input type="text" class="form-control" placeholder="Inserisci il titolo" id="title" name="title" value="{{old('title') ?? $apartments->title}}">
+                        <input type="text" class="form-control" placeholder="Inserisci il titolo" id="title" name="title" value="{{old('title') ?? $apartment->title}}">
                     </div>
                     <div class="form-group my-3">
                         <label class="control-label">Immagine di copertina</label>
@@ -59,23 +59,23 @@
                     </div>
                     <div class="form-group my-3">
                         <label class="control-label">Numero di stanze</label>
-                        <input type="number" class="form-control" placeholder="Inserisci il numero di stanze" id="room_n" name="room_n" value="{{old('room_n') ?? $apartments->room_n}}">
+                        <input type="number" class="form-control" placeholder="Inserisci il numero di stanze" id="room_n" name="room_n" value="{{old('room_n') ?? $apartment->room_n}}">
                     </div>
                     <div class="form-group my-3">
                         <label class="control-label">Numero di letti</label>
-                        <input type="number" class="form-control" placeholder="Inserisci il numero di letti" id="bed_n" name="bed_n" value="{{old('bed_n') ?? $apartments->bed_n}}">
+                        <input type="number" class="form-control" placeholder="Inserisci il numero di letti" id="bed_n" name="bed_n" value="{{old('bed_n') ?? $apartment->bed_n}}">
                     </div>
                     <div class="form-group my-3">
                         <label class="control-label">Numero di bagni</label>
-                        <input type="number" class="form-control" placeholder="Inserisci il numero di bagni" id="bath_n" name="bath_n" value="{{old('bath_n') ?? $apartments->bath_n}}">
+                        <input type="number" class="form-control" placeholder="Inserisci il numero di bagni" id="bath_n" name="bath_n" value="{{old('bath_n') ?? $apartment->bath_n}}">
                     </div>
                     <div class="form-group my-3">
                         <label class="control-label">Metri quadri</label>
-                        <input type="number" class="form-control" placeholder="Inserisci il numero metri quadri" id="square_meters" name="square_meters" value="{{old('square_meters') ?? $apartments->square_meters}}">
+                        <input type="number" class="form-control" placeholder="Inserisci il numero metri quadri" id="square_meters" name="square_meters" value="{{old('square_meters') ?? $apartment->square_meters}}">
                     </div>
                     <div class="form-group my-3">
                         <label class="control-label">Indirizzo</label>
-                        <input type="text" class="form-control" placeholder="Inserisci l'indirizzo" id="address" name="address" value="{{old('address') ?? $apartments->address}}">
+                        <input type="text" class="form-control" placeholder="Inserisci l'indirizzo" id="address" name="address" value="{{old('address') ?? $apartment->address}}">
                     </div>
                     <div class="form-group my-3">
                         <button type="submit" class="btn btn-success btn-sm">Salva</button>
