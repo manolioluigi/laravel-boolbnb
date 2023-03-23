@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use Illuminate\Support\Str;
 use App\Models\Optional;
 
 class OptionalSeeder extends Seeder
@@ -16,12 +16,14 @@ class OptionalSeeder extends Seeder
      */
     public function run()
     {
-        $optionals = ['car_space', 'wifi', 'pool', 'kitchen', 'garden', 'sea_view', 'icon'];
+
+        $optionals = config('optionals');
 
         foreach ($optionals as $optional) {
             $newOptional = new Optional();
-            $newOptional->name = $optional;
-            $newOptional->slug = Optional::generateSlug($newOptional->name);
+            $newOptional->name = $optional['name'];
+            $newOptional->icon = $optional['icon'];
+            $newOptional->slug = Optional::generateSlug('name');
 
             $newOptional->save();
         }
