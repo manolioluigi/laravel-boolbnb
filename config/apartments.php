@@ -2,14 +2,6 @@
 return $apartment =
     [
         [
-<<<<<<< HEAD
-            'title' => "",
-            'description' => "",
-            'room_n' => "",
-            'bed_n' => "",
-            'bath_n' => "",
-            'square_meters' => "",
-=======
             'title' => "La Stalla - Casa San Gabriel",
             'description' => "Cottage con 1 camera da letto situato nella proprietà di Casa San Gabriel, immerso nella splendida campagna umbra, ha accesso agli ampi giardini e alla piscina. Il cottage è un completo self catering studio cottage con 1 letto matrimoniale o due letti singoli e aria condizionata.
             Lo spazio
@@ -71,16 +63,12 @@ return $apartment =
             'bed_n' => "2",
             'bath_n' => "2",
             'square_meters' => "100",
->>>>>>> 77de55e971eef7882dff8717a4121590410f07c4
             'visible' => true,
             'address' => "",
             'latitude' => "",
             'longitude' => "",
             'cover_image' => "",
         ],
-<<<<<<< HEAD
-    ];
-=======
         [
             'title' => "Nurdachhaus Marie nella Foresta Nera",
             'description' => "Rendi la tua vacanza un'esperienza molto speciale e indimenticabile in un Nurdachhaus nella Foresta Nera.
@@ -95,7 +83,6 @@ return $apartment =
             'longitude' => "",
             'cover_image' => "https://a0.muscache.com/im/pictures/miso/Hosting-50503787/original/15230787-28ca-4405-a89d-968f324d4c93.jpeg?im_w=1200",
         ],
-
         [
             'title' => "La Calcara. Spiaggia privata",
             'description' => "Villa panoramica in  tenuta di ettari  vista panoramica sulla baia di Amalfi.  La pulizia a brillo e la disinfezione di tutte le superfici sono il nostro forte, controllare le recensioni precedenti. Massima sicurezza da contagi  con spiaggia privata, grande piscina marina e consegna di cibo. Decorazioni interne in stile mediterraneo.  Adatta ai bambini, privacy, ampi terreni. 6 camere da letto 7 bagni, parcheggio per 5 veicoli. Su richiesta cucina, per cena, pranzo e colazione",
@@ -109,8 +96,7 @@ return $apartment =
             'longitude' => "",
             'cover_image' => "https://a0.muscache.com/im/pictures/miso/Hosting-4971155/original/983adc0c-ce92-4138-9d23-81f5abe2d12e.jpeg?im_w=1200",
         ],
-    ]
+    ];
 
 ?>
 
->>>>>>> 77de55e971eef7882dff8717a4121590410f07c4
