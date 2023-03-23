@@ -94,6 +94,8 @@ class ApartmentController extends Controller
      */
     public function destroy(Apartment $apartment)
     {
-        //
+        $apartment->delete();
+
+        return redirect()->route('admin.apartments.index')->with('message', 'Appartamento cancellato correttamente');
     }
 }
