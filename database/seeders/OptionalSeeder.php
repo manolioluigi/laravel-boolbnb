@@ -23,8 +23,7 @@ class OptionalSeeder extends Seeder
             $newOptional = new Optional();
             $newOptional->name = $optional['name'];
             $newOptional->icon = $optional['icon'];
-            $newOptional->slug = Optional::generateSlug('name');
-
+            $newOptional->slug = Optional::generateSlug($newOptional->name);
             $newOptional->save();
         }
     }
