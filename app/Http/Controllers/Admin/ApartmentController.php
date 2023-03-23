@@ -60,7 +60,7 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
-        //
+        return view('admin.apartments.show', compact('apartment'));
     }
 
     /**
@@ -71,7 +71,9 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-        //
+        $optionals = Optional::all();
+        $sponsorships = Sponsorship::all();
+        return view('admin.apartments.edit', compact('apartment', 'optionals', 'sponsorships'));
     }
 
     /**
