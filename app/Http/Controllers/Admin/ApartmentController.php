@@ -73,7 +73,7 @@ class ApartmentController extends Controller
     {
         $optionals = Optional::all();
         $sponsorships = Sponsorship::all();
-        return view('admin.apartments.edit', compact('apartments', 'optionals', 'sponsorships'));
+        return view('admin.apartments.edit', compact('apartment', 'optionals', 'sponsorships'));
     }
 
     /**
