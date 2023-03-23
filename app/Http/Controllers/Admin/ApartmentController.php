@@ -37,8 +37,8 @@ class ApartmentController extends Controller
     public function create()
     {
         $optionals = Optional::all();
-        $sponsorship = Sponsorship::all();
-        return view('admin.apartments.create', compact('optionals', 'sponsorship'));
+        $sponsorships = Sponsorship::all();
+        return view('admin.apartments.create', compact('optionals', 'sponsorships'));
     }
 
     /**
@@ -72,8 +72,8 @@ class ApartmentController extends Controller
     public function edit(Apartment $apartment)
     {
         $optionals = Optional::all();
-        $sponsorship = Sponsorship::all();
-        return view('admin.apartments.edit', compact('apartment', 'optionals', 'sponsorship'));
+        $sponsorships = Sponsorship::all();
+        return view('admin.apartments.edit', compact('apartments', 'optionals', 'sponsorships'));
     }
 
     /**
