@@ -20,7 +20,20 @@ class Apartment extends Model
     protected $fillable =  ['title', 'slug', 'description', 'room_n', 'bed_n', 'bath_n', 'square_meters', 'visible', 'address', 'latitude', 'longitude', 'cover_image'];
 
     public static function generateSlug($title){
-        return Str::slug($title, '-');
+        if(static::whereSlug($slug = Str::slug($title))->exists()) {
+            $max = static::whereTitle($title)->latest('id')->skip(1)->value('slug');
+
+            if (is_numeric($max[-1])) {
+                return preg_replace_callback('/(\d+)$/', function ($mathces) {
+                    return $mathces[1] + 1;
+                }, $max);
+            }
+
+            return "{$slug}-2";
+        }
+        else{
+            return Str::slug($title, '-');
+        }
     }
 
     public function users(){
