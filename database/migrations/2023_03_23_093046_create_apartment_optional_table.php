@@ -16,9 +16,15 @@ return new class extends Migration
         Schema::create('apartment_optional', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('apartment_id');
-            $table->foreign('apartment_id')->references('id')->on('apartments');
+            $table->foreign('apartment_id')
+                ->references('id')
+                ->on('apartments')
+                ->cascadeOnDelete();
             $table->unsignedBigInteger('optional_id');
-            $table->foreign('optional_id')->references('id')->on('optionals');
+            $table->foreign('optional_id')
+                ->references('id')
+                ->on('optionals')
+                ->cascadeOnDelete();
             $table->timestamps();
         });
     }
