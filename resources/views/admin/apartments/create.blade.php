@@ -53,7 +53,7 @@
                             <input type="number" class="form-control" placeholder="Metri" id="square_meters" name="square_meters">
                         </div>
                     </div>
-                    <div class="form-group my-3">
+                    {{-- <div class="form-group my-3">
                         <label class="control-label">Sponsorship</label>
                         <select class="form-comntrol" name="sponsorship_id" id="sponsorship_id">
                             <option value="">Seziona gli sponsorship</option>
@@ -61,7 +61,7 @@
                                 <option value="{{ $sponsorship->id }}">{{ $sponsorship->name }}</option>
                             @endforeach
                         </select>
-                    </div>
+                    </div> --}}
                     <div class="form-group my-3">
                         <div class="control-label">Optionals: </div>
                         @foreach ($optionals as $optional)
