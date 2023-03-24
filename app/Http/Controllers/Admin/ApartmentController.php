@@ -64,8 +64,6 @@ class ApartmentController extends Controller
         $newApartment->fill($form_data);
         $newApartment->save();
         
-        $newApartment->fill($form_data);
-        $newApartment->save();
 
         if ($request->has('optionals')) {
             $newApartment->optionals()->attach($request->optionals);
