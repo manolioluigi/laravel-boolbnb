@@ -85,7 +85,30 @@ class ApartmentController extends Controller
      */
     public function update(UpdateApartmentRequest $request, Apartment $apartment)
     {
-        //
+        $form_data = $request->validated();
+
+        $slug = Apartment::generateSlug($request->title, '-');
+
+        $form_data['slug'] = $slug;
+
+        if($request->has('cover_image')){
+            //SECONDO CONTROLLO PER CANCELLARE IL FILE PRECEDENTE SE PRESENTE
+            if($apartment->cover_image){
+                Storage::delete($apartment->cover_image);  
+            }
+
+            $path = Storage::disk('public')->put('', $request->cover_image);
+            
+            $form_data['cover_image'] = $path;
+        }
+
+        $apartment->update($form_data);
+
+        if($request->has('optionals')){
+            $apartment->optionals()->sync($request->optionals);
+        }
+
+        return redirect()->route('admin.apartments.index')->with('message', $apartment->title.' è stato correttamente aggiornato');
     }
 
     /**
