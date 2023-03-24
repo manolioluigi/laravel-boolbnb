@@ -62,8 +62,8 @@ class ApartmentController extends Controller
         //          $form_data['cover_img'] = $path;
         //      }
 
-        //      $newApartment->fill($form_data);
-        //   $newApartment->save();
+        //    $newApartment->fill($form_data);
+        //    $newApartment->save();
 
         if ($request->has('optionals')) {
             $newApartment->optionals()->attach($request->optionals);
@@ -73,18 +73,17 @@ class ApartmentController extends Controller
             $newApartment->sponsorships()->attach($request->sponsorships);
         }
 
-        $new_apartment = new Apartment();
-        $new_apartment->title = $form_data['title'];
-        $new_apartment->description = $form_data['description'];
-        $new_apartment->room_n = $form_data['room_n'];
-        $new_apartment->bed_n = $form_data['bed_n'];
-        $new_apartment->bath_n = $form_data['bath_n'];
-        $new_apartment->square_meters = $form_data['square_meters'];
-        $new_apartment->visible = $form_data['visible'];
-        $new_apartment->address = $form_data['address'];
-        $new_apartment->cover_img = $form_data['cover_img'];
+        $newApartment = new Apartment();
+        $newApartment->title = $form_data['title'];
+        $newApartment->description = $form_data['description'];
+        $newApartment->room_n = $form_data['room_n'];
+        $newApartment->bed_n = $form_data['bed_n'];
+        $newApartment->bath_n = $form_data['bath_n'];
+        $newApartment->square_meters = $form_data['square_meters'];
+        $newApartment->address = $form_data['address'];
+        //    $newApartment->cover_img = $form_data['cover_img'];
 
-        $new_apartment->save();
+        $newApartment->save();
 
         // Mail::to('hello@example.com')->send(new ConfirmProject($new_apartment));
 
