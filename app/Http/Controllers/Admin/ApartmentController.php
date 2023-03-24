@@ -7,6 +7,9 @@ use App\Models\Apartment;
 use Illuminate\Facades\Auth;
 use Illuminate\Facades\Storage;
 
+use Illuminate\Support\Facades\Storage;
+
+
 use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
 use App\Http\Controllers\Controller;
@@ -49,7 +52,51 @@ class ApartmentController extends Controller
      */
     public function store(StoreApartmentRequest $request)
     {
-        //
+        $data = $request->validated();
+        $slug = Apartment::generateSlug($request->title);
+
+        // aggiungo una coppia chiave valore all'array $data
+        $data['slug'] = $slug;
+        $newApartment = new Apartment();
+
+        if($request->hasFile('cover_image')){
+            $path = Storage::disk('public')->put('post_images', $request->cover_image);
+            $data['cover_image'] = $path;
+        }
+
+        $newApartment->fill($data);
+        $newApartment->save();
+
+        if($request->has('optionals')){
+            $newApartment->optionals()->attach($request->optionals);
+        }
+
+        if($request->has('sponsorships')){
+            $newApartment->sponsorships()->attach($request->sponsorships);
+        }
+
+        $new_lead = new Lead();
+        $new_lead->title = $data['title'];
+        $new_lead->slug = $data['slug'];
+        $new_lead->description = $data['description'];
+        $new_lead->room_n = $data['room_n'];
+        $new_lead->bed_n = $data['bed_n'];
+        $new_lead->bath_n = $data['bath_n'];
+        $new_lead->square_meters = $data['square_meters'];
+        $new_lead->visible = $data['visible'];
+        $new_lead->address = $data['address'];
+        $new_lead->latitude = $data['latitude'];
+        $new_lead->longitude = $data['longitude'];
+
+        $new_lead->save();
+
+        // Mail::to('hello@example.com')->send(new ConfirmProject($new_lead));
+
+
+        // queste operazione si possono fare anche così (3 in 1)
+        // $newPost = Post::create($data);
+
+        return redirect()->route('admin.apartments.index')->with('message', 'Appartamento aggiunto correttamente');
     }
 
     /**
