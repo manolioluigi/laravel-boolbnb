@@ -57,13 +57,14 @@ class ApartmentController extends Controller
         $form_data['slug'] = $slug;
         $newApartment = new Apartment();
 
-        //      if ($request->hasFile('cover_img')) {
-        //          $path = Storage::disk('public')->put('cover_img', $request->cover_img);
-        //          $form_data['cover_img'] = $path;
-        //      }
+        if ($request->hasFile('cover_img')) {
+            $path = Storage::disk('public')->put('cover_img', $request->cover_img);
+            $form_data['cover_img'] = $path;
+        }
 
-        //    $newApartment->fill($form_data);
-        //    $newApartment->save();
+            $newApartment->fill($form_data);
+            $newApartment->save();
+
 
         if ($request->has('optionals')) {
             $newApartment->optionals()->attach($request->optionals);
@@ -81,7 +82,8 @@ class ApartmentController extends Controller
         $newApartment->bath_n = $form_data['bath_n'];
         $newApartment->square_meters = $form_data['square_meters'];
         $newApartment->address = $form_data['address'];
-        //    $newApartment->cover_img = $form_data['cover_img'];
+        $newApartment->cover_img = $form_data['cover_img'];
+        $newApartment->visible = $form_data['visible'];
 
         $newApartment->save();
 

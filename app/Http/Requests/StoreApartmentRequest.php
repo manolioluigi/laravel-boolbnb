@@ -31,7 +31,8 @@ class StoreApartmentRequest extends FormRequest
             'bath_n'            => ['required', 'max:4'],
             'square_meters'     => ['required', 'max:11'],
             'address'           => ['required', 'max:255'],
-            //     'cover_img'         => ['required', 'max:255']
+            'visible'           => ['required'],
+            'cover_img'         => ['required', 'max:255']
         ];
     }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.admin');
+@extends('layouts.admin')
 
 @section('content')
 
@@ -21,11 +21,16 @@
         </div>
         @endif --}}
         <div>
-            <form action="{{ route('admin.apartments.store')}}" method="POST">
+            <form action="{{ route('admin.apartments.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label class="control-label">TITOLO</label>
+                    <label class="control-label">Titolo</label>
                     <input type="text" class="form-control" placeholder="Titolo" id="title" name="title">
+                </div>
+                <div class="form-group my-3">
+                    <label class="control-label">Copertina</label>
+                    <input type="file" name="cover_img" id="cover_img" class="form-control">
+                    <div class="text-danger"></div>
                 </div>
                 <div class="form-group">
                     <label class="control-label">Indirizzo</label>
@@ -53,6 +58,13 @@
                         <label class="control-label">METRI QUADRATI</label>
                         <input type="number" class="form-control" placeholder="Metri" id="square_meters" name="square_meters">
                     </div>
+                </div>
+                <div class="form-group my-3">
+                    <label class="control-label">Vuoi rendere l'appartamento pubblico?</label>
+                    <select class="form-comntrol" name="visible" id="visible">
+                        <option value="1">Si</option>
+                        <option value="0">No</option>
+                    </select>
                 </div>
                 <div class="form-group my-3">
                     <label class="control-label">Sponsorship</label>
