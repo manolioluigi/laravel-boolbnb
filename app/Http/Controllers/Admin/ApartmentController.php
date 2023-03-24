@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Apartment;
+use App\Http\Controllers\Controller;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-
 use App\Http\Requests\StoreApartmentRequest;
 use App\Http\Requests\UpdateApartmentRequest;
-use App\Http\Controllers\Controller;
 
+use App\Models\Apartment;
 use App\Models\Optional;
 use App\Models\Sponsorship;
 use App\Models\Image;
@@ -57,11 +56,14 @@ class ApartmentController extends Controller
         $form_data['slug'] = $slug;
         $newApartment = new Apartment();
 
-        // if ($request->hasFile('cover_img')) {
-        //     $path = Storage::disk('public')->put('cover_img', $request->cover_img);
-        //     $form_data['cover_img'] = $path;
-        // }
+        if ($request->hasFile('cover_img')) {
+            $path = Storage::disk('public')->put('cover_img', $request->cover_img);
+            $form_data['cover_img'] = $path;
+        }
 
+        $newApartment->fill($form_data);
+        $newApartment->save();
+        
         $newApartment->fill($form_data);
         $newApartment->save();
 
