@@ -137,7 +137,7 @@ class ApartmentController extends Controller
 
         $form_data['slug'] = $slug;
 
-        if($request->has('cover_image')){
+        if($request->hasFile('cover_image')){
             //SECONDO CONTROLLO PER CANCELLARE IL FILE PRECEDENTE SE PRESENTE
             if($apartment->cover_image){
                 Storage::delete($apartment->cover_image);  
