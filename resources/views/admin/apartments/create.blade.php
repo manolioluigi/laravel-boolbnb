@@ -48,6 +48,7 @@
                         <label class="control-label">LETTI</label>
                         <input type="number" class="form-control" placeholder="Letti" id="bed_n" name="bed_n">
                     </div>
+
                     <div class="form-group">
                         <label class="control-label">METRI QUADRATI</label>
                         <input type="number" class="form-control" placeholder="Metri" id="square_meters" name="square_meters">
