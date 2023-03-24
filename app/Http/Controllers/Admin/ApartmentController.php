@@ -73,25 +73,6 @@ class ApartmentController extends Controller
             $newApartment->sponsorships()->attach($request->sponsorships);
         }
 
-        $newApartment = new Apartment();
-        $newApartment->title = $form_data['title'];
-        $newApartment->description = $form_data['description'];
-        $newApartment->room_n = $form_data['room_n'];
-        $newApartment->bed_n = $form_data['bed_n'];
-        $newApartment->bath_n = $form_data['bath_n'];
-        $newApartment->square_meters = $form_data['square_meters'];
-        $newApartment->address = $form_data['address'];
-        // $newApartment->cover_img = $form_data['cover_img'];
-        $newApartment->visible = $form_data['visible'];
-
-        $newApartment->save();
-
-        // Mail::to('hello@example.com')->send(new ConfirmProject($new_apartment));
-
-
-        // queste operazione si possono fare anche così (3 in 1)
-        // $newPost = Post::create($data);
-
         return redirect()->route('admin.apartments.index')->with('message', 'Appartamento aggiunto correttamente');
     }
 
