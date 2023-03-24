@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Apartment;
 
 use Illuminate\Facades\Auth;
-use Illuminate\Facades\Storage;
-
 use Illuminate\Support\Facades\Storage;
 
 
@@ -60,7 +58,7 @@ class ApartmentController extends Controller
         $newApartment = new Apartment();
 
         if($request->hasFile('cover_image')){
-            $path = Storage::disk('public')->put('post_images', $request->cover_image);
+            $path = Storage::disk('public')->put('cover_image', $request->cover_image);
             $data['cover_image'] = $path;
         }
 
@@ -75,22 +73,23 @@ class ApartmentController extends Controller
             $newApartment->sponsorships()->attach($request->sponsorships);
         }
 
-        $new_lead = new Lead();
-        $new_lead->title = $data['title'];
-        $new_lead->slug = $data['slug'];
-        $new_lead->description = $data['description'];
-        $new_lead->room_n = $data['room_n'];
-        $new_lead->bed_n = $data['bed_n'];
-        $new_lead->bath_n = $data['bath_n'];
-        $new_lead->square_meters = $data['square_meters'];
-        $new_lead->visible = $data['visible'];
-        $new_lead->address = $data['address'];
-        $new_lead->latitude = $data['latitude'];
-        $new_lead->longitude = $data['longitude'];
+        $new_apartment = new Apartment();
+        $new_apartment->title = $data['title'];
+        $new_apartment->slug = $data['slug'];
+        $new_apartment->description = $data['description'];
+        $new_apartment->room_n = $data['room_n'];
+        $new_apartment->bed_n = $data['bed_n'];
+        $new_apartment->bath_n = $data['bath_n'];
+        $new_apartment->square_meters = $data['square_meters'];
+        $new_apartment->visible = $data['visible'];
+        $new_apartment->address = $data['address'];
+        $new_apartment->latitude = $data['latitude'];
+        $new_apartment->longitude = $data['longitude'];
+        $new_apartment->cover_image = $data['cover_image'];
 
-        $new_lead->save();
+        $new_apartment->save();
 
-        // Mail::to('hello@example.com')->send(new ConfirmProject($new_lead));
+        // Mail::to('hello@example.com')->send(new ConfirmProject($new_apartment));
 
 
         // queste operazione si possono fare anche così (3 in 1)
@@ -144,7 +143,7 @@ class ApartmentController extends Controller
                 Storage::delete($apartment->cover_image);  
             }
 
-            $path = Storage::disk('public')->put('', $request->cover_image);
+            $path = Storage::disk('public')->put('cover_image', $request->cover_image);
             
             $form_data['cover_image'] = $path;
         }
@@ -167,7 +166,7 @@ class ApartmentController extends Controller
     public function destroy(Apartment $apartment)
     {
 
-        $apartment->optionals()->sync();
+        $apartment->optionals()->sync([]);
 
         $apartment->delete();
 
