@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
-
-use App\Http\Requests\StoreApartmentRequest;
-use App\Http\Requests\UpdateApartmentRequest;
-
-use App\Models\Apartment;
-use App\Models\Optional;
-use App\Models\Sponsorship;
+use App\Models\User;
 use App\Models\Image;
 use App\Models\Message;
+use App\Models\Optional;
+use App\Models\Apartment;
+use App\Models\Sponsorship;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\StoreApartmentRequest;
+use App\Http\Requests\UpdateApartmentRequest;
 
 class ApartmentController extends Controller
 {
@@ -25,8 +23,13 @@ class ApartmentController extends Controller
      */
     public function index()
     {
+        if (Auth::check())
+        {
+             $id = Auth::user()->getId();
+        }
         $apartments = Apartment::all();
-        return vieW('admin.apartments.index', compact('apartments'));
+        $sponsorships = Sponsorship::all();
+        return vieW('admin.apartments.index', compact('apartments', 'id', 'sponsorships'));
     }
 
     /**
@@ -52,9 +55,18 @@ class ApartmentController extends Controller
         $form_data = $request->validated();
         $slug = Apartment::generateSlug($request->title);
 
+        
+
         // aggiungo una coppia chiave valore all'array $data
         $form_data['slug'] = $slug;
         $newApartment = new Apartment();
+        
+        //id utente 
+        if (Auth::check())
+        {
+             $id = Auth::user()->getId();
+        }
+        $form_data['user_id'] = $id;
 
         if ($request->hasFile('cover_img')) {
             $path = Storage::disk('public')->put('cover_img', $request->cover_img);
@@ -62,6 +74,7 @@ class ApartmentController extends Controller
         }
 
         $newApartment->fill($form_data);
+
         $newApartment->save();
 
 
@@ -151,4 +164,5 @@ class ApartmentController extends Controller
 
         return redirect()->route('admin.apartments.index')->with('message', 'Appartamento cancellato correttamente');
     }
+    
 }
