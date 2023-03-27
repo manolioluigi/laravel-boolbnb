@@ -112,10 +112,6 @@ class ApartmentController extends Controller
     {
         $form_data = $request->validated();
 
-        $slug = Apartment::generateSlug($request->title);
-
-        $form_data['slug'] = $slug;
-
         if ($request->hasFile('cover_img')) {
             if ($apartment->cover_img) {
                 Storage::delete($apartment->cover_img);
@@ -130,6 +126,10 @@ class ApartmentController extends Controller
 
         if ($request->has('optionals')) {
             $apartment->optionals()->sync($request->optionals);
+        }
+
+        if ($request->has('sponsorships')) {
+            $apartment->sponsorships()->sync($request->sponsorships);
         }
 
         return redirect()->route('admin.apartments.index')->with('message', $apartment->title . ' è stato correttamente aggiornato');

@@ -40,7 +40,7 @@
                         <select name="sponsorship_id" id="sponsorship_id" class="form-control">
                                 <option value="">Seleziona la sponsorship</option>
                             @foreach ($sponsorships as $sponsorship)
-                                <option value="{{$sponsorship->id}}" {{$sponsorship->id == old('sponsorship_id', $apartment->sponsorship_id) ? 'selected' : ''}}>
+                                <option value="{{$sponsorship->id}}" {{$sponsorship->id == old('sponsorships', $apartment->sponsorship_id) ? 'selected' : ''}}>
                                     {{$sponsorship->name}}
                                 </option>
                             @endforeach
