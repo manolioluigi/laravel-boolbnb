@@ -24,7 +24,6 @@
                         <tr>
                             <th>Id</th>
                             <th>Titolo</th>
-                            <th>Slug</th>
                             <th>Azioni</th>
                         </tr>
                     </thead>
@@ -33,7 +32,6 @@
                         <tr>
                             <th scope="row">{{ $apartment->id }}</th>
                             <td>{{ $apartment->title }}</td>
-                            <td>{{ $apartment->slug }}</td>
                             <td>
                                 <a href="{{route('admin.apartments.show', $apartment->slug)}}" title="Visualizza apartment" class="btn btn-sm btn-square btn-primary">
                                     <i class="fas fa-eye"></i>

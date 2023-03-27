@@ -16,9 +16,9 @@
             </div>
             <div class="col-12 my-5">
                 <div>
-                    <img src="{{ $apartment->cover_img }}" alt="{{$apartment->title}}" class="w-50">
+                    <img src="{{ asset('storage/' .$apartment->cover_img) }}" alt="{{$apartment->title}}" class="w-50">
                 </div>
-                <p><strong>Slug: </strong>{{ $apartment->slug }}</p>
+                <p><strong>Slug: (momentaneo)</strong>{{ $apartment->slug }}</p>
                 <label class="d-block"><strong>Descrizione appartamento:</strong></label>
                 <p>{{ $apartment->description }}</p>
                 <p><strong>Numero camere: </strong>{{ $apartment->room_n }}</p>
@@ -26,8 +26,6 @@
                 <p><strong>Numero bagni: </strong>{{ $apartment->bath_n }}</p>
                 <p><strong>Metri quadri dell'appartamento: </strong>{{ $apartment->square_meters }}</p>
                 <p><strong>Indirizzo: </strong>{{ $apartment->address }}</p>
-                <p><strong>Latitudine: </strong>{{ $apartment->latitude }}</p>
-                <p><strong>Longitudine: </strong>{{ $apartment->longitude }}</p>
             </div>
         </div>
     </div>

@@ -68,7 +68,7 @@
                 </div>
                 <div class="form-group my-3">
                     <label class="control-label">Sponsorship</label>
-                    <select class="form-comntrol" name="sponsorship_id" id="sponsorship_id">
+                    <select class="form-comntrol" name="sponsorships" id="sponsorships">
                         <option value="">Seziona gli sponsorship</option>
                         @foreach ($sponsorships as $sponsorship)
                         <option value="{{ $sponsorship->id }}">{{ $sponsorship->name }}</option>

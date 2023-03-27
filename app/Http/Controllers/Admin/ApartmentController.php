@@ -84,7 +84,8 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
-        return view('admin.apartments.show', compact('apartment'));
+        $sponsorships = Sponsorship::all();
+        return view('admin.apartments.show', compact('apartment', 'sponsorships'));
     }
 
     /**
@@ -111,11 +112,11 @@ class ApartmentController extends Controller
     {
         $form_data = $request->validated();
 
-        $slug = Apartment::generateSlug($request->title, '-');
+        $slug = Apartment::generateSlug($request->title);
 
         $form_data['slug'] = $slug;
 
-        if ($request->has('cover_img')) {
+        if ($request->hasFile('cover_img')) {
             if ($apartment->cover_img) {
                 Storage::delete($apartment->cover_img);
             }
