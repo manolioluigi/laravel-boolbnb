@@ -132,7 +132,7 @@ class ApartmentController extends Controller
             $apartment->optionals()->sync($request->optionals);
         }
 
-        return redirect()->route('admin.apartments.index')->with('message', $apartment->title . ' è stato correttamente aggiornato');
+        return redirect()->route('admin.apartments.show',  ['apartment' => $apartment['slug']])->with('message', 'Appartamento correttamente aggiornato');
     }
 
     /**

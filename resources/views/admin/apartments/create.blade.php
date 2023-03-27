@@ -11,15 +11,15 @@
             <div class="d-flex gap-3 pb-3">
                 <a href="{{ route('admin.apartments.index') }}" class="btn btn-primary">Annulla</a>
             </div>
-            {{-- @if ($errors->any())
+            @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul class="list-unstyled">
                         @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-            @endforeach
-            </ul>
-        </div>
-        @endif --}}
+                        <li>{{ $error }}</li>                        
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         <div>
             <form action="{{ route('admin.apartments.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
