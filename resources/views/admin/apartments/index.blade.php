@@ -9,7 +9,7 @@
                         <h2>ELENCO APPARTAMENTI</h2>
                     </div>
                     <div>
-                        <a class="btn btn-primary" href="{{route('admin.apartments.create')}}">Aggiungi Apartment</a>
+                        <a class="btn btn-primary" href="{{route('admin.apartments.create')}}">Aggiungi Apartmento</a>
                     </div>
                 </div>
             </div>

@@ -85,7 +85,8 @@ class ApartmentController extends Controller
     public function show(Apartment $apartment)
     {
         $sponsorships = Sponsorship::all();
-        return view('admin.apartments.show', compact('apartment', 'sponsorships'));
+        $optionals = Optional::all();
+        return view('admin.apartments.show', compact('apartment', 'sponsorships', 'optionals'));
     }
 
     /**

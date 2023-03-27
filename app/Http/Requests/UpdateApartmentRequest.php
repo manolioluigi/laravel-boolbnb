@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateApartmentRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class UpdateApartmentRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'             => ['required', 'unique:apartments', 'max:255'],
+            'title'             => ['required', Rule::unique('apartments')->ignore($this->apartment), 'max:255'],
             'description'       => ['nullable'],
             'room_n'            => ['required', 'max:4'],
             'bed_n'             => ['required', 'max:4'],
@@ -32,7 +33,7 @@ class UpdateApartmentRequest extends FormRequest
             'square_meters'     => ['required', 'max:11'],
             'address'           => ['required', 'max:255'],
             'visible'           => ['required'],
-            'cover_img'         => ['required', 'max:255']
+            'cover_img'         => ['nullable', 'image', 'max:255']
         ];
     }
 }

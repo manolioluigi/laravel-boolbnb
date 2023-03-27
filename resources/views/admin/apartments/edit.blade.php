@@ -10,7 +10,7 @@
                         <h2>Modifica un appartamento</h2>
                     </div>
                     <div>
-                        <a href="{{route('admin.apartments.index')}}" class="btn btn-sm btn-primary">Torna all'elenco</a>
+                        <a href="{{route('admin.apartments.index')}}" class="btn btn-primary">Torna all'elenco</a>
                     </div>
                 </div>
             </div>
@@ -42,17 +42,6 @@
                         <select class="form-comntrol" name="visible" id="visible">
                             <option value="1" {{$apartment->visible == old('visible', $apartment->visible) ? 'selected' : ''}}>Si</option>
                             <option value="0" {{$apartment->visible == old('visible', $apartment->visible) ? 'selected' : ''}}>No</option>
-                        </select>
-                    </div>
-                    <div class="form-group my-3">
-                        <label class="control-label">Sponsorships</label>
-                        <select name="sponsorships" id="sponsorships" class="form-control">
-                                <option value="">Seleziona la sponsorship</option>
-                            @foreach ($sponsorships as $sponsorship)
-                                <option value="{{$sponsorship->id}}" {{$sponsorship->id == old('sponsorships', $apartment->sponsorship_id) ? 'selected' : ''}}>
-                                    {{$sponsorship->name}}
-                                </option>
-                            @endforeach
                         </select>
                     </div>
                     <div class="form-group my-3">
