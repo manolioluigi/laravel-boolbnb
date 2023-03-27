@@ -58,7 +58,9 @@
                     </div>
                     @endif
                     @empty
-                        
+                    <div class="alert alert-danger">
+                        Non hai appartamenti
+                    </div>
                     @endforelse
                 </tbody>
             </table>
