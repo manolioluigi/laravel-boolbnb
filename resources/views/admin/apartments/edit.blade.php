@@ -46,10 +46,10 @@
                     </div>
                     <div class="form-group my-3">
                         <label class="control-label">Sponsorships</label>
-                        <select name="sponsorship_id" id="sponsorship_id" class="form-control">
+                        <select name="sponsorships" id="sponsorships" class="form-control">
                                 <option value="">Seleziona la sponsorship</option>
                             @foreach ($sponsorships as $sponsorship)
-                                <option value="{{$sponsorship->id}}" {{$sponsorship->id == old('sponsorships', $sponsorship->id) ? 'selected' : ''}}>
+                                <option value="{{$sponsorship->id}}" {{$sponsorship->id == old('sponsorships', $apartment->sponsorship_id) ? 'selected' : ''}}>
                                     {{$sponsorship->name}}
                                 </option>
                             @endforeach

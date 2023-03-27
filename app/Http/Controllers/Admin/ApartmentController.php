@@ -128,6 +128,10 @@ class ApartmentController extends Controller
             $apartment->optionals()->sync($request->optionals);
         }
 
+        if ($request->has('sponsorships')) {
+            $apartment->sponsorships()->sync($request->sponsorships);
+        }
+
         return redirect()->route('admin.apartments.show',  ['apartment' => $apartment['slug']])->with('message', 'Appartamento correttamente aggiornato');
     }
 
