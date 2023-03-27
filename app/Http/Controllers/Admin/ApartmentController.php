@@ -112,10 +112,6 @@ class ApartmentController extends Controller
     {
         $form_data = $request->validated();
 
-        $slug = Apartment::generateSlug($request->title);
-
-        $form_data['slug'] = $slug;
-
         if ($request->hasFile('cover_img')) {
             if ($apartment->cover_img) {
                 Storage::delete($apartment->cover_img);

@@ -39,16 +39,13 @@
                                 <a href="{{route('admin.apartments.edit', $apartment->slug)}}" title="Modfica apartment" class="btn btn-sm btn-square btn-warning">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <button type="submit" class="btn btn-sm btn-square btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                                {{-- <form class="d-inline-block" action="{{route('admin.apartments.destroy', $apartment->slug)}}" method="POST">
+                                <form class="d-inline-block" action="{{route('admin.apartments.destroy', $apartment->slug)}}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-sm btn-square btn-danger">
                                         <i class="fas fa-trash"></i>
                                     </button>
-                                </form> --}}
+                                </form>
                             </td>
                         </tr>
                         @empty
