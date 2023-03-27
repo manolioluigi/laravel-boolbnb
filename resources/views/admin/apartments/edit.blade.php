@@ -33,7 +33,7 @@
                     </div>
                     <div class="form-group my-3">
                         <label class="control-label">Copertina</label>
-                        <img src="{{ asset('storage/' .$apartment->cover_img ) }}" class="w-25 my-3">
+                        <div><img src="{{ asset('storage/' .$apartment->cover_img ) }}" class="w-25 my-3"></div>
                         <input type="file" name="cover_img" id="cover_img" class="form-control">
                     </div>
                     <div class="form-group my-3">
