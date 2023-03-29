@@ -19,12 +19,11 @@ use App\Http\Controllers\Api\UserController;
 Route::get('/apartments', [ApartmentController::class, 'index']);
 Route::get('/apartment/{slug}', [ApartmentController::class, 'show']);
 
-Route::middleware(['auth:api'])->group(function () {
-
-    Route::get('/userdata', [UserController::class, 'index']);
-
-}); 
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/userdata', [UserController::class, 'index']);
+// }); 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    // Route::get('/userdata', [UserController::class, 'index']);
     return $request->user();
 });
