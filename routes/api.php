@@ -18,8 +18,12 @@ use App\Http\Controllers\Api\UserController;
 
 Route::get('/apartments', [ApartmentController::class, 'index']);
 Route::get('/apartment/{slug}', [ApartmentController::class, 'show']);
-Route::get('/userdata', [UserController::class, 'index'])->middleware();
 
+Route::middleware(['auth:api'])->group(function () {
+
+    Route::get('/userdata', [UserController::class, 'index']);
+
+}); 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
