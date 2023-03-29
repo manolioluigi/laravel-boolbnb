@@ -19,6 +19,9 @@
                 {{ session('message')}}
             </div>
             @endif
+
+            {{$email}}
+
             <table class="table table-striped text-center">
                 <thead>
                     <tr class="bigger-text">
