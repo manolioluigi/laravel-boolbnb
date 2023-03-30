@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ApartmentController;
+
 // use App\Http\Controllers\Api\UserController;
 use GuzzleHttp\Client;
 
@@ -19,6 +20,8 @@ use GuzzleHttp\Client;
 
 Route::get('/apartments', [ApartmentController::class, 'index']);
 Route::get('/apartment/{slug}', [ApartmentController::class, 'show']);
+
+
 
 Route::get('/geocode/{address}', function(Request $request, $address) {
     try {
