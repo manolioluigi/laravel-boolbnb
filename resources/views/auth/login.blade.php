@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('login') }}"  id="login-form">
                         @csrf
 
                         <div class="mb-4 row">
@@ -70,4 +70,37 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+    <script>
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+        e.preventDefault(); // impedisco il comportamento predefinito del form
+
+        var form = e.target;
+        var url = form.action;
+        var method = form.method;
+        var data = new FormData(form);
+
+        fetch(url, {
+            method: method,
+            body: data,
+            headers: {
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                window.location.href = "{{ route('admin.dashboard') }}";
+            } else {
+                // mostro un messaggio di errore
+            }
+        })
+        .catch(error => {
+            // gestisco l'errore qui
+        });
+        });
+    </script>
+    @parent
 @endsection
