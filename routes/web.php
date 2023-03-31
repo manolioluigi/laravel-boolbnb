@@ -22,7 +22,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/search', [SearchController::class, 'search'])->name('search.apartments');
+Route::post('/search', [SearchController::class, 'search'])->name('apartments.search');
 
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
@@ -40,4 +40,3 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-
