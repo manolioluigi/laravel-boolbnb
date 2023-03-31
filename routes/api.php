@@ -19,8 +19,6 @@ use App\Http\Controllers\Api\ApartmentController;
 
 Route::get('/apartments', [ApartmentController::class, 'index']);
 Route::get('/apartments/{slug}', [ApartmentController::class, 'show']);
-Route::get('/api/search', [SearchController::class, 'search']);
-Route::get('/apartment/{slug}', [ApartmentController::class, 'show']);
 Route::get('/search', [SearchController::class, 'search']);
 
 
