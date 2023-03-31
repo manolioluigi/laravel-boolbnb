@@ -1,11 +1,10 @@
 <?php
 
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\SearchController;
 use App\Http\Controllers\Api\ApartmentController;
-
-// use App\Http\Controllers\Api\UserController;
-use GuzzleHttp\Client;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +19,7 @@ use GuzzleHttp\Client;
 
 Route::get('/apartments', [ApartmentController::class, 'index']);
 Route::get('/apartment/{slug}', [ApartmentController::class, 'show']);
+Route::get('/search', [SearchController::class, 'search']);
 
 
 

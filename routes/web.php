@@ -22,7 +22,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('/search', [SearchController::class, 'search'])->name('apartments.search');
 
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
