@@ -51,7 +51,7 @@
                             <form class="d-inline-block" action="{{route('admin.apartments.destroy', $apartment->slug)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-square btn-danger">
+                                <button type="submit" class="btn btn-sm btn-square btn-danger" data-toggle="modal" data-target="#exampleModal">
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </form>
@@ -69,4 +69,5 @@
     </div>
 </div>
 
+@include('admin.partials.modal')
 @endsection
