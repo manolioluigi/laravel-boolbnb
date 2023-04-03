@@ -93,6 +93,6 @@ class MessageController extends Controller
     {
         $message->delete();
 
-        return redirect()->route('admin.messagess.index')->with('message', 'Message Deleted');
+        return redirect()->route('admin.messages.index')->with('message', 'Message Deleted');
     }
 }

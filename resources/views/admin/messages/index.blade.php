@@ -21,6 +21,7 @@
                 <thead>
                     <tr class="bigger-text">
                         <th>e-Mail</th>
+                        <th>Apartment Name</th>
                         <th>Date</th>
                         <th>Actions</th>
                     </tr>
@@ -53,9 +54,7 @@
                     </tr>
                     @endif
                     @empty
-                    <div class="alert alert-danger">
-                        You dont have any Message
-                    </div>
+
                     @endforelse
                     @endforeach
                 </tbody>
