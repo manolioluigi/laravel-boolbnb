@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\Auth;
-
 use App\Models\User;
 use App\Models\Apartment;
 use App\Models\Message;
@@ -57,8 +56,9 @@ class MessageController extends Controller
      */
     public function show(Message $message)
     {
-        return view('admin.messages.index', compact('messages'));
+        return view('admin.messages.show', compact('message'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
