@@ -108,7 +108,7 @@ class ApartmentController extends Controller
             $newApartment->sponsorships()->attach($request->sponsorships);
         }
 
-        return redirect()->route('admin.apartments.index')->with('message', 'Appartamento aggiunto correttamente');
+        return redirect()->route('admin.apartments.index')->with('message', 'Appartment Created Correctly');
     }
 
 
@@ -209,6 +209,6 @@ class ApartmentController extends Controller
 
         $apartment->delete();
 
-        return redirect()->route('admin.apartments.index')->with('message', 'Appartment Deleted correctly');
+        return redirect()->route('admin.apartments.index')->with('message', 'Appartment Deleted');
     }
 }

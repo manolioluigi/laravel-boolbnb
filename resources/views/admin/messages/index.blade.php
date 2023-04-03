@@ -36,7 +36,7 @@
                             @endforeach
                         </td>
                         <td>
-
+                            {{$message['created_at']}}
                         </td>
                         <td>
                             <a href="{{route('admin.messages.show', $message->id)}}" title="Visualize message" class="btn btn-sm btn-square btn-primary">
