@@ -29,7 +29,7 @@ class ApartmentController extends Controller
         }
         $apartments = Apartment::all();
         $sponsorships = Sponsorship::all();
-        return vieW('admin.apartments.index', compact('apartments', 'id', 'sponsorships'));
+        return view('admin.apartments.index', compact('apartments', 'id', 'sponsorships'));
     }
 
     /**
@@ -52,63 +52,63 @@ class ApartmentController extends Controller
      */
     public function store(StoreApartmentRequest $request)
     {
-    $form_data = $request->validated();
-    $slug = Apartment::generateSlug($request->title);
+        $form_data = $request->validated();
+        $slug = Apartment::generateSlug($request->title);
 
-    // aggiungo una coppia chiave valore all'array $data
-    $form_data['slug'] = $slug;
-    $newApartment = new Apartment();
+        // aggiungo una coppia chiave valore all'array $data
+        $form_data['slug'] = $slug;
+        $newApartment = new Apartment();
 
-    //id utente 
-    if (Auth::check()) {
-        $id = Auth::user()->getId();
-        $form_data['user_id'] = $id;
-    } else {
-        $form_data['user_id'] = null; 
-    }
+        //id utente 
+        if (Auth::check()) {
+            $id = Auth::user()->getId();
+            $form_data['user_id'] = $id;
+        } else {
+            $form_data['user_id'] = null;
+        }
 
-    if ($request->hasFile('cover_img')) {
-        $path = Storage::disk('public')->put('cover_img', $request->cover_img);
-        $form_data['cover_img'] = $path;
-    }
-    // Recupero l'indirizzo dall'array di dati
-    $address = $form_data['address'];
+        if ($request->hasFile('cover_img')) {
+            $path = Storage::disk('public')->put('cover_img', $request->cover_img);
+            $form_data['cover_img'] = $path;
+        }
+        // Recupero l'indirizzo dall'array di dati
+        $address = $form_data['address'];
 
-    // Creo un'istanza del client GuzzleHttp
-    $client = new \GuzzleHttp\Client([
-        'verify' => false
-    ]);
+        // Creo un'istanza del client GuzzleHttp
+        $client = new \GuzzleHttp\Client([
+            'verify' => false
+        ]);
 
-    // Eseguo una richiesta GET all'API di TomTom per ottenere le coordinate geografiche dell'indirizzo
-    $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
-    'query' => [
-        'key' => '186r2iPLXxGSFMemhylqjC36urDbgOV2', // chiave API di TomTom
-    ],
-    ]);
+        // Eseguo una richiesta GET all'API di TomTom per ottenere le coordinate geografiche dell'indirizzo
+        $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
+            'query' => [
+                'key' => '186r2iPLXxGSFMemhylqjC36urDbgOV2', // chiave API di TomTom
+            ],
+        ]);
 
-    // Decodifico la risposta JSON e recupera le coordinate geografiche
-    $geocode_data = json_decode($response->getBody(), true);
-    $longitude = $geocode_data['results'][0]['position']['lon'];
-    $latitude = $geocode_data['results'][0]['position']['lat'];
+        // Decodifico la risposta JSON e recupera le coordinate geografiche
+        $geocode_data = json_decode($response->getBody(), true);
+        $longitude = $geocode_data['results'][0]['position']['lon'];
+        $latitude = $geocode_data['results'][0]['position']['lat'];
 
-    // Aggiungo le coordinate geografiche all'array di dati
-    $form_data['longitude'] = $longitude;
-    $form_data['latitude'] = $latitude;
+        // Aggiungo le coordinate geografiche all'array di dati
+        $form_data['longitude'] = $longitude;
+        $form_data['latitude'] = $latitude;
 
-    $newApartment->fill($form_data);
+        $newApartment->fill($form_data);
 
-    $newApartment->save();
+        $newApartment->save();
 
 
-    if ($request->has('optionals')) {
-        $newApartment->optionals()->attach($request->optionals);
-    }
+        if ($request->has('optionals')) {
+            $newApartment->optionals()->attach($request->optionals);
+        }
 
-    if ($request->has('sponsorships')) {
-        $newApartment->sponsorships()->attach($request->sponsorships);
-    }
+        if ($request->has('sponsorships')) {
+            $newApartment->sponsorships()->attach($request->sponsorships);
+        }
 
-    return redirect()->route('admin.apartments.index')->with('message', 'Appartamento aggiunto correttamente');
+        return redirect()->route('admin.apartments.index')->with('message', 'Appartamento aggiunto correttamente');
     }
 
 
@@ -169,9 +169,9 @@ class ApartmentController extends Controller
 
         // Eseguo una richiesta GET all'API di TomTom per ottenere le coordinate geografiche dell'indirizzo
         $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
-        'query' => [
-            'key' => '186r2iPLXxGSFMemhylqjC36urDbgOV2', // chiave API di TomTom
-        ],
+            'query' => [
+                'key' => '186r2iPLXxGSFMemhylqjC36urDbgOV2', // chiave API di TomTom
+            ],
         ]);
 
         // Decodifico la risposta JSON e recupera le coordinate geografiche
@@ -193,7 +193,7 @@ class ApartmentController extends Controller
             $apartment->sponsorships()->sync($request->sponsorships);
         }
 
-        return redirect()->route('admin.apartments.show',  ['apartment' => $apartment['slug']])->with('message', 'Appartamento correttamente aggiornato');
+        return redirect()->route('admin.apartments.show',  ['apartment' => $apartment['slug']])->with('message', 'Appartment Updated Correctly');
     }
 
     /**
@@ -209,6 +209,6 @@ class ApartmentController extends Controller
 
         $apartment->delete();
 
-        return redirect()->route('admin.apartments.index')->with('message', 'Appartamento cancellato correttamente');
+        return redirect()->route('admin.apartments.index')->with('message', 'Appartment Deleted correctly');
     }
 }
