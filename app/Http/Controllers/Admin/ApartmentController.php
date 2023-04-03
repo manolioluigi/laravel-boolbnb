@@ -79,37 +79,52 @@ class ApartmentController extends Controller
             'verify' => false
         ]);
 
-        // Eseguo una richiesta GET all'API di TomTom per ottenere le coordinate geografiche dell'indirizzo
-        $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
-            'query' => [
-                'key' => '186r2iPLXxGSFMemhylqjC36urDbgOV2', // chiave API di TomTom
-            ],
-        ]);
+        try{
+            
+            // Eseguo una richiesta GET all'API di TomTom per ottenere le coordinate geografiche dell'indirizzo
+            $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
+                'query' => [
+                    'key' => '186r2iPLXxGSFMemhylqjC36urDbgOV2', // chiave API di TomTom
+                ],
+            ]);
 
-        // Decodifico la risposta JSON e recupera le coordinate geografiche
-        $geocode_data = json_decode($response->getBody(), true);
-        $longitude = $geocode_data['results'][0]['position']['lon'];
-        $latitude = $geocode_data['results'][0]['position']['lat'];
+            // Decodifico la risposta JSON e recupera le coordinate geografiche
+            $geocode_data = json_decode($response->getBody(), true);
+            $longitude = $geocode_data['results'][0]['position']['lon'] ?? null;
+            $latitude = $geocode_data['results'][0]['position']['lat'] ?? null;
 
-        // Aggiungo le coordinate geografiche all'array di dati
-        $form_data['longitude'] = $longitude;
-        $form_data['latitude'] = $latitude;
+            if ($longitude && $latitude) {
+                // Aggiungo le coordinate geografiche all'array di dati
+                $form_data['longitude'] = $longitude;
+                $form_data['latitude'] = $latitude;
 
-        $newApartment->fill($form_data);
+                $newApartment->fill($form_data);
 
-        $newApartment->save();
+                $newApartment->save();
 
 
-        if ($request->has('optionals')) {
-            $newApartment->optionals()->attach($request->optionals);
+                if ($request->has('optionals')) {
+                    $newApartment->optionals()->attach($request->optionals);
+                }
+
+                if ($request->has('sponsorships')) {
+                    $newApartment->sponsorships()->attach($request->sponsorships);
+                }
+
+                return redirect()->route('admin.apartments.index')->with('message', 'Apartment Created Correctly');
+            } else {
+                return redirect()->route('admin.apartments.create')->with('message', 'Your address is incorrect');
+            }
+        
+        } catch (\GuzzleHttp\Exception\RequestException $e){
+
+            // Se si verifica un'eccezione nella richiesta, restituisci un errore con il messaggio dell'eccezione
+            return redirect()->route('admin.apartments.create')->with('message', 'Your address is incorrect');
+
         }
 
-        if ($request->has('sponsorships')) {
-            $newApartment->sponsorships()->attach($request->sponsorships);
-        }
-
-        return redirect()->route('admin.apartments.index')->with('message', 'Appartment Created Correctly');
     }
+
 
 
     /**
@@ -167,33 +182,46 @@ class ApartmentController extends Controller
             'verify' => false
         ]);
 
-        // Eseguo una richiesta GET all'API di TomTom per ottenere le coordinate geografiche dell'indirizzo
-        $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
-            'query' => [
-                'key' => '186r2iPLXxGSFMemhylqjC36urDbgOV2', // chiave API di TomTom
-            ],
-        ]);
+        try{
+            
+            // Eseguo una richiesta GET all'API di TomTom per ottenere le coordinate geografiche dell'indirizzo
+            $response = $client->get('https://api.tomtom.com/search/2/geocode/' . urlencode($address) . '.json', [
+                'query' => [
+                    'key' => '186r2iPLXxGSFMemhylqjC36urDbgOV2', // chiave API di TomTom
+                ],
+            ]);
 
-        // Decodifico la risposta JSON e recupera le coordinate geografiche
-        $geocode_data = json_decode($response->getBody(), true);
-        $longitude = $geocode_data['results'][0]['position']['lon'];
-        $latitude = $geocode_data['results'][0]['position']['lat'];
+            // Decodifico la risposta JSON e recupera le coordinate geografiche
+            $geocode_data = json_decode($response->getBody(), true);
+            $longitude = $geocode_data['results'][0]['position']['lon'] ?? null;
+            $latitude = $geocode_data['results'][0]['position']['lat'] ?? null;
 
-        // Aggiungo le coordinate geografiche all'array di dati
-        $form_data['longitude'] = $longitude;
-        $form_data['latitude'] = $latitude;
+            if ($longitude && $latitude) {
+                // Aggiungo le coordinate geografiche all'array di dati
+                $form_data['longitude'] = $longitude;
+                $form_data['latitude'] = $latitude;
 
-        $apartment->update($form_data);
+                $apartment->update($form_data);
 
-        if ($request->has('optionals')) {
-            $apartment->optionals()->sync($request->optionals);
+                if ($request->has('optionals')) {
+                    $apartment->optionals()->sync($request->optionals);
+                }
+
+                if ($request->has('sponsorships')) {
+                    $apartment->sponsorships()->sync($request->sponsorships);
+                }
+
+                return redirect()->route('admin.apartments.show',  ['apartment' => $apartment['slug']])->with('message', 'Appartment Updated Correctly');
+            } else {
+                return redirect()->route('admin.apartments.edit',  ['apartment' => $apartment['slug']])->with('message', 'Your address is incorrect');
+            }
+        
+        } catch (\GuzzleHttp\Exception\RequestException $e){
+
+            // Se si verifica un'eccezione nella richiesta, restituisci un errore con il messaggio dell'eccezione
+            return redirect()->route('admin.apartments.edit',  ['apartment' => $apartment['slug']])->with('message', 'Your address is incorrect');
+
         }
-
-        if ($request->has('sponsorships')) {
-            $apartment->sponsorships()->sync($request->sponsorships);
-        }
-
-        return redirect()->route('admin.apartments.show',  ['apartment' => $apartment['slug']])->with('message', 'Appartment Updated Correctly');
     }
 
     /**
