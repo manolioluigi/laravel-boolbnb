@@ -30,7 +30,7 @@
                     @csrf
                     <div class="form-group">
                         <label class="control-label">Title</label>
-                        <input type="text" class="form-control" placeholder="Title" id="title" name="title">
+                        <input type="text" class="form-control" placeholder="Title" id="title" name="title" value="{{ old('title') }}">
                     </div>
                     <div class="form-group my-3">
                         <label class="control-label">Cover Image</label>
@@ -39,29 +39,29 @@
                     </div>
                     <div class="form-group my-2">
                         <label class="control-label">Address</label>
-                        <input type="text" class="form-control" placeholder="Address" id="address" name="address">
+                        <input type="text" class="form-control" placeholder="Address" id="address" name="address" value="{{ old('address') }}">
                     </div>
                     <div class="form-group my-2">
                         <label class="control-label">Description</label>
-                        <textarea name="description" id="content" cols="30" rows="10" placeholder="Describe your Apartment" class="form-control"></textarea>
+                        <textarea name="description" id="content" cols="30" rows="10" placeholder="Describe your Apartment" class="form-control">{{ old('description') }}</textarea>
                     </div>
                     <div class="d-flex gap-5">
                         <div class="form-group">
                             <label class="control-label">Rooms</label>
-                            <input type="number" class="form-control" placeholder="Rooms" id="room_n" name="room_n">
+                            <input type="number" class="form-control" placeholder="Rooms" id="room_n" name="room_n" value="{{ old('room_n') }}">
                         </div>
                         <div class="form-group">
                             <label class="control-label">Bathrooms</label>
-                            <input type="number" class="form-control" placeholder="Bathrooms" id="bath_n" name="bath_n">
+                            <input type="number" class="form-control" placeholder="Bathrooms" id="bath_n" name="bath_n" value="{{ old('bath_n') }}">
                         </div>
                         <div class="form-group">
                             <label class="control-label">Beds</label>
-                            <input type="number" class="form-control" placeholder="Beds" id="bed_n" name="bed_n">
+                            <input type="number" class="form-control" placeholder="Beds" id="bed_n" name="bed_n" value="{{ old('bed_n') }}">
                         </div>
 
                         <div class="form-group">
                             <label class="control-label">Square Meters</label>
-                            <input type="number" class="form-control" placeholder="Square Meters" id="square_meters" name="square_meters">
+                            <input type="number" class="form-control" placeholder="Square Meters" id="square_meters" name="square_meters" value="{{ old('square_meters') }}">
                         </div>
                     </div>
                     <div class="form-group my-3">
@@ -90,4 +90,3 @@
 </div>
 
 @endsection
-
