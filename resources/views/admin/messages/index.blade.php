@@ -28,17 +28,12 @@
                 </thead>
                 <tbody>
                     @foreach($apartments as $apartment)
-                    @forelse ($apartment->messages as $message)
+                    @foreach ($apartment->messages as $message)
                     @if($apartment->user_id == $id)
                     <tr class="medium-text">
                         <td>{{ $message->user_mail }}</td>
-                        <td>@foreach ($messages as $message)
-                            {{$apartment['title']}}
-                            @endforeach
-                        </td>
-                        <td>
-                            {{$message['created_at']}}
-                        </td>
+                        <td>{{$apartment['title']}}</td>
+                        <td>{{$message['created_at']}}</td>
                         <td>
                             <a href="{{route('admin.messages.show', $message->id)}}" title="Visualize message" class="btn btn-sm btn-square btn-primary">
                                 <i class="fas fa-eye"></i>
@@ -53,9 +48,7 @@
                         </td>
                     </tr>
                     @endif
-                    @empty
-
-                    @endforelse
+                    @endforeach
                     @endforeach
                 </tbody>
             </table>
