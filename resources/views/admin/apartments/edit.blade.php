@@ -24,9 +24,9 @@
         </div>
         @endif
         @if (session('message'))
-            <div class="alert alert-danger">
-                {{ session('message')}}
-            </div>
+        <div class="alert alert-danger">
+            {{ session('message')}}
+        </div>
         @endif
         <div class="col-12">
             <form action="{{route('admin.apartments.update', ['apartment' => $apartment['slug']])}}" method="POST" enctype="multipart/form-data">
@@ -68,19 +68,19 @@
                 </div>
                 <div class="form-group my-3">
                     <label class="control-label">Number of Rooms</label>
-                    <input type="number" class="form-control" placeholder="Input the number of Rooms" id="room_n" name="room_n" value="{{old('room_n') ?? $apartment['room_n']}}">
+                    <input type="number" class="form-control" placeholder="Input the number of Rooms" id="room_n" name="room_n" value="{{old('room_n') ?? $apartment['room_n']}}" min="0">
                 </div>
                 <div class="form-group my-3">
                     <label class="control-label">Number of Beds</label>
-                    <input type="number" class="form-control" placeholder="Input the number of Beds" id="bed_n" name="bed_n" value="{{old('bed_n') ?? $apartment['bed_n']}}">
+                    <input type="number" class="form-control" placeholder="Input the number of Beds" id="bed_n" name="bed_n" value="{{old('bed_n') ?? $apartment['bed_n']}}" min="0">
                 </div>
                 <div class="form-group my-3">
                     <label class="control-label">Number of Bathrooms</label>
-                    <input type="number" class="form-control" placeholder="Input the number of Bathrooms" id="bath_n" name="bath_n" value="{{old('bath_n') ?? $apartment['bath_n']}}">
+                    <input type="number" class="form-control" placeholder="Input the number of Bathrooms" id="bath_n" name="bath_n" value="{{old('bath_n') ?? $apartment['bath_n']}}" min="0">
                 </div>
                 <div class="form-group my-3">
                     <label class="control-label">Square Meters</label>
-                    <input type="number" class="form-control" placeholder="Input Apartment dimension in Square Meters" id="square_meters" name="square_meters" value="{{old('square_meters') ?? $apartment['square_meters']}}">
+                    <input type="number" class="form-control" placeholder="Input Apartment dimension in Square Meters" id="square_meters" name="square_meters" value="{{old('square_meters') ?? $apartment['square_meters']}}" min="0">
                 </div>
                 <div class="form-group my-3">
                     <label class="control-label">Address</label>
