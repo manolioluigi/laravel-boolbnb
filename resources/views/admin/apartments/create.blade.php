@@ -48,20 +48,19 @@
                     <div class="d-flex gap-5">
                         <div class="form-group">
                             <label class="control-label">Rooms</label>
-                            <input type="number" class="form-control" placeholder="Rooms" id="room_n" name="room_n" value="{{ old('room_n') }}">
+                            <input type="number" class="form-control" placeholder="Rooms" id="room_n" name="room_n" value="{{ old('room_n') }}" min="0">
                         </div>
                         <div class="form-group">
                             <label class="control-label">Bathrooms</label>
-                            <input type="number" class="form-control" placeholder="Bathrooms" id="bath_n" name="bath_n" value="{{ old('bath_n') }}">
+                            <input type="number" class="form-control" placeholder="Bathrooms" id="bath_n" name="bath_n" value="{{ old('bath_n') }}" min="0">
                         </div>
                         <div class="form-group">
                             <label class="control-label">Beds</label>
-                            <input type="number" class="form-control" placeholder="Beds" id="bed_n" name="bed_n" value="{{ old('bed_n') }}">
+                            <input type="number" class="form-control" placeholder="Beds" id="bed_n" name="bed_n" value="{{ old('bed_n') }}" min="0">
                         </div>
-
                         <div class="form-group">
                             <label class="control-label">Square Meters</label>
-                            <input type="number" class="form-control" placeholder="Square Meters" id="square_meters" name="square_meters" value="{{ old('square_meters') }}">
+                            <input type="number" class="form-control" placeholder="Square Meters" id="square_meters" name="square_meters" value="{{ old('square_meters') }}" min="0">
                         </div>
                     </div>
                     <div class="form-group my-3">
