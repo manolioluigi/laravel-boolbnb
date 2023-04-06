@@ -22,9 +22,19 @@
                     <li class="list-group-item">{{ $sponsorship['price'] }} &euro;</li>
                     <li class="list-group-item">{{ $sponsorship['duration'] }} hours</li>
                 </ul>
-                <div class="card-body">
-                    <a href="http://127.0.0.1:8000/admin/payments" class="card-link">Card link</a>
-                    <a href="#" class="card-link">Another link</a>
+                <div class="card-body d-flex flex-column gap-2">
+                    <label for="apartments_select">Choose an Apartment</label>
+                    <ul name="apartments_select" id="apartments_select">
+                        @foreach($apartments as $apartment)
+                        @if($apartment->user_id == $id)
+                        <li value="{{ $apartment['id'] }}">
+                            <a href="http://127.0.0.1:8000/admin/payments?id={{ $apartment->id }}&price={{ $sponsorship['price'] }}" class="card-link">
+                                {{ $apartment['title'] }}
+                            </a>
+                        </li>
+                        @endif
+                        @endforeach
+                    </ul>
                 </div>
             </div>
             @endforeach

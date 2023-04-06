@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\StoreSponsorshipRequest;
-use App\Http\Requests\UpdateSponsorshipRequest;
+use App\Models\Apartment;
 use App\Models\Sponsorship;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\StoreSponsorshipRequest;
+use App\Http\Requests\UpdateSponsorshipRequest;
 
 class SponsorshipController extends Controller
 {
@@ -16,9 +18,15 @@ class SponsorshipController extends Controller
      */
     public function index()
     {
+        if (Auth::check()) {
+            $id = Auth::user()->getId();
+        }
+        $apartments = Apartment::all();
+
         $sponsorships = Sponsorship::all();
-        return view('admin.sponsorships.index', compact('sponsorships'));
+        return view('admin.sponsorships.index', compact('sponsorships', 'id', 'apartments'));
     }
+
 
     /**
      * Show the form for creating a new resource.
