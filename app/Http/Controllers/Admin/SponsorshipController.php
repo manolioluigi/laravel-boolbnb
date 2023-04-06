@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\StoreSponsorshipRequest;
 use App\Http\Requests\UpdateSponsorshipRequest;
 use App\Models\Sponsorship;
+use App\Http\Controllers\Controller;
 
 class SponsorshipController extends Controller
 {
@@ -15,7 +16,8 @@ class SponsorshipController extends Controller
      */
     public function index()
     {
-        //
+        $sponsorships = Sponsorship::all();
+        return view('admin.sponsorships.index', compact('sponsorships'));
     }
 
     /**
