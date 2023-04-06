@@ -46,6 +46,7 @@
                 <form method="post" id="payment-form" action="{{ url('/admin/checkout') }}">
                   @csrf
                     <section>
+                      
                         <label for="amount">
                             <span class="input-label">Amount</span>
                             <div class="input-wrapper amount-wrapper">
