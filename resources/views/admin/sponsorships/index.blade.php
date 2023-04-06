@@ -23,7 +23,7 @@
                     <li class="list-group-item">{{ $sponsorship['duration'] }} hours</li>
                 </ul>
                 <div class="card-body">
-                    <a href="#" class="card-link">Card link</a>
+                    <a href="http://127.0.0.1:8000/admin/payments" class="card-link">Card link</a>
                     <a href="#" class="card-link">Another link</a>
                 </div>
             </div>
