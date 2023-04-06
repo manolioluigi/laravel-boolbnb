@@ -7,6 +7,7 @@ use App\Http\Controllers\Guest\SearchController;
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ApartmentController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\SponsorshipController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ Route::get('/', function () {
 
 //pagamenti
 
-Route::get('/admin/sponsorships', function(){
+Route::get('/admin/payments', function () {
     $gateway = new Braintree\Gateway([
         'environment' => config('services.braintree.environment'),
         'merchantId' => config('services.braintree.merchantId'),
@@ -38,7 +39,7 @@ Route::get('/admin/sponsorships', function(){
     return view('admin.sponsorships', ['token' => $token]);
 })->middleware(['auth', 'verified']);
 
-Route::post('/admin/checkout', function(Request $request){
+Route::post('/admin/checkout', function (Request $request) {
 
     $gateway = new Braintree\Gateway([
         'environment' => config('services.braintree.environment'),
@@ -68,21 +69,20 @@ Route::post('/admin/checkout', function(Request $request){
         foreach ($result->errors->deepAll() as $error) {
             $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
         }
-        return back()->withErrors('An error occurred: '.$result->message);
-        
+        return back()->withErrors('An error occurred: ' . $result->message);
     }
-
 })->middleware(['auth', 'verified']);
 
 
 Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->prefix('admin')
-    ->group(function(){
+    ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
-        Route::resource('/apartments', ApartmentController::class)->parameters(['apartments'=>'apartment:slug']);
+        Route::resource('/apartments', ApartmentController::class)->parameters(['apartments' => 'apartment:slug']);
         Route::resource('/messages', MessageController::class)->parameters(['messages' => 'message:id']);
-});
+        Route::resource('/sponsorships', SponsorshipController::class);
+    });
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -90,4 +90,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

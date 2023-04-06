@@ -81,7 +81,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.sponsorships.index' ? 'bg-secondary' : '' }}" href="#">
+                                <a class="nav-link text-white {{ Route::currentRouteName() == 'admin.sponsorships.index' ? 'bg-secondary' : '' }}" href="{{route('admin.sponsorships.index')}}">
                                     <i class="fa-solid fa-list fa-lg fa-fw"></i> Sponsorships
                                 </a>
                             </li>
