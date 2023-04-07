@@ -71,6 +71,7 @@
                     <a href="{{ route('admin.sponsorships.index') }}" class="btn btn-secondary">Back to List</a>
                   </div>
               </form>
+
             </div>
           </div>
         </div>
