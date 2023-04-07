@@ -41,7 +41,7 @@
                             <form class="d-inline-block" action="{{route('admin.messages.destroy', $message->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-square btn-danger">
+                                <button type="submit" class="btn btn-sm btn-square btn-danger" data-bs-toggle="modalmsg" data-bs-target="#exampleModal">
                                     <i class="fas fa-trash"></i>
                                 </button>
                             </form>
@@ -55,5 +55,5 @@
         </div>
     </div>
 </div>
-
+@include('admin.partials.modalmsg')
 @endsection
