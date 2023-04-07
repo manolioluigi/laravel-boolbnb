@@ -46,7 +46,8 @@
                 <form method="post" id="payment-form" action="{{ url('/admin/checkout') }}">
                   @csrf
                     <section>
-                      
+                        <input type="hidden" name="apartment_id" value="@php $apartment_id = request()->input('id'); echo $apartment_id; @endphp">
+                        <input type="hidden" name="price" value="@php $price_id = request()->input('price'); echo $price_id; @endphp">
                         <label for="amount">
                             <span class="input-label">Amount</span>
                             <div class="input-wrapper amount-wrapper">
@@ -60,7 +61,7 @@
                     </section>
     
                     <input id="nonce" name="payment_method_nonce" type="hidden" />
-                    <button class="button" type="submit"><span>Test Transaction</span></button>
+                    <button class="button" type="submit"><span>Pay Now</span></button>
                 </form>
             </div>
         </div>

@@ -1,6 +1,8 @@
 <?php
 
+use App\Models\Sponsorship;
 use Illuminate\Http\Request;
+use App\Models\ApartmentSponsorship;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Guest\SearchController;
@@ -8,6 +10,7 @@ use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ApartmentController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SponsorshipController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +53,12 @@ Route::post('/admin/checkout', function (Request $request) {
 
     $amount = $request->amount;
     $nonce = $request->payment_method_nonce;
+    
+    // Ottengo i dati dal request
+    $apartmentId = $request->input('apartment_id');
+    $price = $request->input('price');
+    // Trovo il record di Sponsorship corrispondente al prezzo
+    $sponsorshipData = Sponsorship::where('price', $price)->first();
 
     $result = $gateway->transaction()->sale([
         'amount' => $amount,
@@ -59,8 +68,22 @@ Route::post('/admin/checkout', function (Request $request) {
         ]
     ]);
 
-    if ($result->success || !is_null($result->transaction)) {
+    if ($result->success) {
         $transaction = $result->transaction;
+
+        //Salvo il nuovo record nel db
+
+        if ($sponsorshipData) {
+            // Creo un'istanza di ApartmentSponsorship utilizzando il modello ApartmentSponsorship
+            $apartmentSponsorship = new ApartmentSponsorship();
+        
+            // Assegnare apartment_id e sponsorship_id ai relativi campi nel modello ApartmentSponsorship
+            $apartmentSponsorship->apartment_id = $apartmentId;
+            $apartmentSponsorship->sponsorship_id = $sponsorshipData->id;
+        
+            // Salvare il modello ApartmentSponsorship nel database
+            $apartmentSponsorship->save();
+        }
 
         return back()->with('success_message', 'Transaction successful');
     } else {
