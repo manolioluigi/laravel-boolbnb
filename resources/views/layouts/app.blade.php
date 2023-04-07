@@ -32,7 +32,6 @@
             <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <input class="form-control form-control-dark w-50" type="text" Placeholder="Search">
             <ul class="navbar-nav ml-auto d-flex flex-row ">
                 <!-- Authentication Links -->
                 @guest
