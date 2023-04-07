@@ -20,9 +20,9 @@
             <table class="table table-striped text-center">
                 <thead>
                     <tr class="bigger-text">
-                        <th>e-Mail</th>
+                        <th class="d-none d-sm-table-cell">e-Mail</th>
                         <th>Apartment Name</th>
-                        <th>Date</th>
+                        <th class="d-none d-sm-table-cell">Date</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -31,9 +31,9 @@
                     @foreach ($apartment->messages as $message)
                     @if($apartment->user_id == $id)
                     <tr class="medium-text">
-                        <td>{{ $message->user_mail }}</td>
+                        <td class="d-none d-sm-table-cell">{{ $message->user_mail }}</td>
                         <td>{{$apartment['title']}}</td>
-                        <td>{{$message['created_at']}}</td>
+                        <td class="d-none d-sm-table-cell">{{$message['created_at']}}</td>
                         <td>
                             <a href="{{route('admin.messages.show', $message->id)}}" title="Visualize message" class="btn btn-sm btn-square btn-primary">
                                 <i class="fas fa-eye"></i>
