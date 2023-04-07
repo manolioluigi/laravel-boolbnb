@@ -28,7 +28,7 @@
     
     <div class="container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 d-flex justify-content-center my-5">
               @if (session('success_message'))
                 <div class="alert alert-success">
                     {{ session('success_message') }}
@@ -43,9 +43,13 @@
                   </ul>
                 </div>
               @endif
+              <div class="card shadow-lg w-50 p-5">
+
+                <img class="card-img-top w-50 align-self-center" src="/img/BOOLBNB-removebg-ok.png" alt="logo_bnb">
+
                 <form method="post" id="payment-form" action="{{ url('/admin/checkout') }}">
                   @csrf
-                    <section>
+                    <section class="mt-3">
                         <input type="hidden" name="apartment_id" value="@php $apartment_id = request()->input('id'); echo $apartment_id; @endphp">
                         <input type="hidden" name="price" value="@php $price_id = request()->input('price'); echo $price_id; @endphp">
                         <label for="amount">
@@ -55,14 +59,18 @@
                             </div>
                         </label>
     
-                        <div class="bt-drop-in-wrapper">
+                        <div class="bt-drop-in-wrapper my-5">
                             <div id="bt-dropin"></div>
                         </div>
                     </section>
     
                     <input id="nonce" name="payment_method_nonce" type="hidden" />
-                    <button class="button" type="submit"><span>Pay Now</span></button>
+                    <div class="d-flex justify-content-between">
+                      <button class="btn btn-primary" type="submit"><span>Pay Now</span></button>
+                      <a href="{{ route('admin.sponsorships.index') }}" class="btn btn-secondary">Back to List</a>
+                    </div>
                 </form>
+              </div>
             </div>
         </div>
     </div>
