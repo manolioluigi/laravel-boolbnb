@@ -25,12 +25,13 @@
 <body>
     <div id="app">
 
-        <header class="navbar navbar-dark sticky-top bg-red flex-md-nowrap p-2 shadow">
-            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="{{route('admin.dashboard')}}">BoolBnB</a>
+        <header class="navbar navbar-dark sticky-top bg-red flex-md-nowrap p-2 shadow">    
+            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 " href="{{route('admin.dashboard')}}">
+                <span class="d-none d-md-block">BoolBnb</span>
+            </a>
             <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <input class="form-control form-control-dark w-50" type="text" Placeholder="Search">
             <ul class="navbar-nav ml-auto d-flex flex-row ">
                 <!-- Authentication Links -->
                 @guest

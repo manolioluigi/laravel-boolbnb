@@ -20,12 +20,12 @@
             </div>
             @endif
 
-            <table class="table table-striped text-center">
+            <table class="table table-striped text-center table-responsive">
                 <thead>
                     <tr class="bigger-text">
                         <th>Title</th>
-                        <th>Sponsorship</th>
-                        <th>Messages</th>
+                        <th class="d-none d-sm-table-cell">Sponsorship</th>
+                        <th class="d-none d-sm-table-cell">Messages</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -34,11 +34,11 @@
                     @if($apartment->user_id == $id)
                     <tr class="medium-text">
                         <td>{{ $apartment->title }}</td>
-                        <td>@foreach ($apartment->sponsorships as $sponsorship)
+                        <td class="d-none d-sm-table-cell">@foreach ($apartment->sponsorships as $sponsorship)
                             {{$sponsorship['name']}}
                             @endforeach
                         </td>
-                        <td>
+                        <td class="d-none d-sm-table-cell">
 
                         </td>
                         <td>

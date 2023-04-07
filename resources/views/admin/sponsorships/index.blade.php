@@ -12,7 +12,7 @@
         </div>
         <div class="col-12 d-flex flex-wrap justify-content-around">
             @foreach($sponsorships as $sponsorship)
-            <div class="card" style="width: 18rem;">
+            <div class="card m-2" style="width: 18rem;">
                 <img class="card-img-top" src="{{ asset('img/' . $sponsorship['name'] . '.png') }}" alt="{{ $sponsorship['name'] }}">
                 <div class="card-body">
                     <h5 class="card-title">{{ $sponsorship['name'] }}</h5>
