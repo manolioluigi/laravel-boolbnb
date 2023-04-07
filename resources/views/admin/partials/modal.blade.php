@@ -6,7 +6,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Are you sure that you want to DELETE this Appartment? <span id="modal-item-title"></span>
+        Are you sure that you want to DELETE this Apartment? <span id="modal-item-title"></span>
       </div>
       @if(count($apartments) > 0)
       <div class="modal-footer">
