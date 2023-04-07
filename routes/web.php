@@ -68,7 +68,7 @@ Route::post('/admin/checkout', function (Request $request) {
         ]
     ]);
 
-    if ($result->success) {
+    // if ($result->success) {
         $transaction = $result->transaction;
 
         //Salvo il nuovo record nel db
@@ -86,14 +86,14 @@ Route::post('/admin/checkout', function (Request $request) {
         }
 
         return back()->with('success_message', 'Transaction successful');
-    } else {
-        $errorString = "";
+    // } else {
+    //     $errorString = "";
 
-        foreach ($result->errors->deepAll() as $error) {
-            $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
-        }
-        return back()->withErrors('An error occurred: ' . $result->message);
-    }
+    //     foreach ($result->errors->deepAll() as $error) {
+    //         $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
+    //     }
+    //     return back()->withErrors('An error occurred: ' . $result->message);
+    // }
 })->middleware(['auth', 'verified']);
 
 

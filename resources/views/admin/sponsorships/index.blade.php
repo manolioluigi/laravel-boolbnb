@@ -24,15 +24,28 @@
                 </ul>
                 <div class="card-body d-flex flex-column gap-2">
                     <label for="apartments_select">Choose an Apartment</label>
-                    <ul name="apartments_select" id="apartments_select">
+                    <ul name="apartments_select" id="apartments_select" class="list-unstyled overflow-hidden-auto">
                         @foreach($apartments as $apartment)
-                        @if($apartment->user_id == $id)
-                        <li value="{{ $apartment['id'] }}">
-                            <a href="http://127.0.0.1:8000/admin/payments?id={{ $apartment->id }}&price={{ $sponsorship['price'] }}" class="card-link">
-                                {{ $apartment['title'] }}
-                            </a>
-                        </li>
-                        @endif
+                            @if($apartment->user_id == $id)
+
+                            <!-- Controllo se l'appartamento ha già una sponsorship -->
+
+                                @if($apartment->sponsorship()->count() > 0)
+                                <!-- L'appartamento ha già una sponsorship -->
+                                    @if($apartment->sponsorship)
+                                        <li value="{{ $apartment['id'] }}" class="text-success">
+                                            {{ $apartment['title'] }} (Sponsored)
+                                        </li>
+                                    @endif
+                                @else
+                                    <li value="{{ $apartment['id'] }}">
+                                        <a href="http://127.0.0.1:8000/admin/payments?id={{ $apartment->id }}&price={{ $sponsorship['price'] }}" class="card-link">
+                                            {{ $apartment['title'] }}
+                                        </a>
+                                    </li>
+                                @endif
+                               
+                            @endif
                         @endforeach
                     </ul>
                 </div>
