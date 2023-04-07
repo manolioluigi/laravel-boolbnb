@@ -49,3 +49,20 @@ header {
     height: 200px;
     border-radius: 1rem;
 }
+
+.form-create {
+    padding-left: 0;
+}
+
+.ellipsis {
+    width: 20px;
+    text-overflow: ellipsis;
+    /* enables ellipsis */
+    /* keeps the text in a single line */
+    overflow: hidden;
+    /* keeps the element from overflowing its parent */
+}
+
+.ellipsis-cont {
+    overflow: hidden;
+}

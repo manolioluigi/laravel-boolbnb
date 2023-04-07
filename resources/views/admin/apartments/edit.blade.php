@@ -49,7 +49,7 @@
                     <label class="control-label">Description</label>
                     <textarea class="form-control" placeholder="Describe your Apartment" name="description" cols="30" rows="10" id="description">{{old('description') ?? $apartment['description']}}</textarea>
                 </div>
-                <div class="d-flex gap-5">
+                <div class="d-flex gap-5 flex-wrap">
                     <div class="form-group my-2">
                         <label class="control-label">Rooms</label>
                         <input type="number" class="form-control" placeholder="Input the number of Rooms" id="room_n" name="room_n" value="{{old('room_n') ?? $apartment['room_n']}}" min="0">
@@ -68,28 +68,30 @@
                     </div>
 
                 </div>
-                <div class="form-group my-2">
+                <div class="form-group my-4">
                     <label class="control-label">Do you want to Show your Apartment?</label>
                     <select class="form-comntrol" name="visible" id="visible">
                         <option value="1" {{$apartment->visible == old('visible', $apartment->visible) ? 'selected' : ''}}>Yes</option>
                         <option value="0" {{$apartment->visible == old('visible', $apartment->visible) ? 'selected' : ''}}>No</option>
                     </select>
                 </div>
-                <div class="form-group my-2 d-flex justify-content-around">
-                    <div class="control-label">Select Optionals</div>
-                    @foreach ($optionals as $optional)
-                    <div class="form-check @error('optionals') is-invalid @enderror">
-                        @if ($errors->any())
-                        <input type="checkbox" value="{{$optional->id}}" name="optionals[]" {{in_array($optional->id, old('optionals', [])) ? 'checked' : ''}} class="form-check-input">
-                        <label class="form-check-label"><i class="{{ $optional->icon}}"></i> {{ $optional->name }}</label>
-                        @else
-                        <input type="checkbox" value="{{$optional->id}}" name="optionals[]" {{$apartment->optionals->contains($optional) ? 'checked' : ''}} class="form-check-input">
-                        <label class="form-check-label"><i class="{{ $optional->icon}}"></i> {{ $optional->name }}</label>
-                        @endif
+                <div class="form-group my-2 d-flex flex-column">
+                    <div class="control-label">Select Optionals:</div>
+                    <div>
+                        @foreach ($optionals as $optional)
+                        <div class="form-check @error('optionals') is-invalid @enderror">
+                            @if ($errors->any())
+                            <input type="checkbox" value="{{$optional->id}}" name="optionals[]" {{in_array($optional->id, old('optionals', [])) ? 'checked' : ''}} class="form-check-input">
+                            <label class="form-check-label"><i class="{{ $optional->icon}}"></i> {{ $optional->name }}</label>
+                            @else
+                            <input type="checkbox" value="{{$optional->id}}" name="optionals[]" {{$apartment->optionals->contains($optional) ? 'checked' : ''}} class="form-check-input">
+                            <label class="form-check-label"><i class="{{ $optional->icon}}"></i> {{ $optional->name }}</label>
+                            @endif
+                        </div>
+                        @endforeach
                     </div>
-                    @endforeach
                 </div>
-                <div class="form-group my-2">
+                <div class="form-group mt-4">
                     <button type="submit" class="btn btn-success">Save</button>
                 </div>
             </form>

@@ -33,7 +33,7 @@
                     @forelse ($apartments as $apartment)
                     @if($apartment->user_id == $id)
                     <tr class="medium-text">
-                        <td>{{ $apartment->title }}</td>
+                        <td class="ellipsis ellipsis-cont">{{ $apartment->title }}</td>
                         <td class="d-none d-sm-table-cell">@foreach ($apartment->sponsorships as $sponsorship)
                             {{$sponsorship['name']}}
                             @endforeach

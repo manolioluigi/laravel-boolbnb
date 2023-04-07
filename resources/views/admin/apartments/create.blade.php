@@ -47,7 +47,7 @@
                         <label class="control-label">Description</label>
                         <textarea name="description" id="content" cols="30" rows="10" placeholder="Describe your Apartment" class="form-control">{{ old('description') }}</textarea>
                     </div>
-                    <div class="d-flex gap-5">
+                    <div class="d-flex gap-5 flex-wrap">
                         <div class="form-group my-2">
                             <label class="control-label">Rooms</label>
                             <input type="number" class="form-control" placeholder="Rooms" id="room_n" name="room_n" value="{{ old('room_n') }}" min="0">
@@ -65,23 +65,25 @@
                             <input type="number" class="form-control" placeholder="Square Meters" id="square_meters" name="square_meters" value="{{ old('square_meters') }}" min="0">
                         </div>
                     </div>
-                    <div class="form-group my-2">
+                    <div class="form-group my-4">
                         <label class="control-label">Do you want to show this Apartment?</label>
                         <select class="form-comntrol" name="visible" id="visible">
                             <option value="1">Yes</option>
                             <option value="0">No</option>
                         </select>
                     </div>
-                    <div class="form-group my-2 d-flex justify-content-around">
+                    <div class="form-group my-2 d-flex flex-column">
                         <div class="control-label">Select Optionals: </div>
-                        @foreach ($optionals as $optional)
-                        <div class="form-check">
-                            <input type="checkbox" value="{{ $optional->id }}" name='optionals[]' class="mx-1">
-                            <label class="form-check-label"><i class="{{ $optional->icon}}"></i> {{ $optional->name }}</label>
+                        <div>
+                            @foreach ($optionals as $optional)
+                            <div class="form-check form-create">
+                                <input type="checkbox" value="{{ $optional->id }}" name='optionals[]'>
+                                <label class="form-check-label"><i class="{{ $optional->icon}}"></i> {{ $optional->name }}</label>
+                            </div>
+                            @endforeach
                         </div>
-                        @endforeach
                     </div>
-                    <div class="form-group my-2">
+                    <div class="form-group mt-4">
                         <button type="submit" class="btn btn-success">Save</button>
                     </div>
                 </form>
