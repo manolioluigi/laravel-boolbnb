@@ -54,18 +54,22 @@ header {
     padding-left: 0;
 }
 
-.ellipsis {
-    width: 20px;
-    text-overflow: ellipsis;
-    /* enables ellipsis */
-    /* keeps the text in a single line */
-    overflow: hidden;
-    /* keeps the element from overflowing its parent */
+@media screen and (max-width: 576px) {
+    .ellipsis {
+        width: 20px;
+        text-overflow: ellipsis;
+        /* enables ellipsis */
+        /* keeps the text in a single line */
+        overflow: hidden;
+        /* keeps the element from overflowing its parent */
+    }
+
+    .ellipsis-cont {
+        overflow: hidden;
+    }
 }
 
-.ellipsis-cont {
-    overflow: hidden;
-}
+
 
 .ul-sponsorships {
     height: 200px;
