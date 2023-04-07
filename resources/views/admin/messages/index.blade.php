@@ -32,7 +32,7 @@
                     @if($apartment->user_id == $id)
                     <tr class="medium-text">
                         <td class="d-none d-sm-table-cell">{{ $message->user_mail }}</td>
-                        <td>{{$apartment['title']}}</td>
+                        <td class="ellipsis ellipsis-cont">{{$apartment['title']}}</td>
                         <td class="d-none d-sm-table-cell">{{$message['created_at']}}</td>
                         <td>
                             <a href="{{route('admin.messages.show', $message->id)}}" title="Visualize message" class="btn btn-sm btn-square btn-primary">
