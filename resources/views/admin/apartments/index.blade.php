@@ -25,7 +25,8 @@
                     <tr class="bigger-text">
                         <th>Title</th>
                         <th class="d-none d-sm-table-cell">Sponsorship</th>
-                        <th class="d-none d-sm-table-cell">Messages</th>
+                        <th class="d-none d-sm-table-cell">New Messages</th>
+                        <th class="d-none d-sm-table-cell">Old Messages</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -34,12 +35,30 @@
                     @if($apartment->user_id == $id)
                     <tr class="medium-text">
                         <td class="ellipsis ellipsis-cont">{{ $apartment->title }}</td>
-                        <td class="d-none d-sm-table-cell">@foreach ($apartment->sponsorships as $sponsorship)
-                            {{$sponsorship['name']}}
-                            @endforeach
+                        <td class="d-none d-sm-table-cell">
+                            @forelse ($apartment->sponsorships as $sponsorship)
+                                {{$sponsorship['name']}}
+                            @empty
+                                <a class="unstyled-link" href="{{ route('admin.sponsorships.index') }}">Sponsor now!</a>
+                            @endforelse
+                        </td>
+                        @php
+                            $newMessages = 0;
+                            $viewedMessages = 0;
+                        @endphp
+
+                        @foreach ($apartment->messages as $message)
+                            @if ($message->viewed == false)
+                                @php $newMessages++ @endphp
+                            @else
+                                @php $viewedMessages++ @endphp
+                            @endif
+                        @endforeach
+                        <td class="d-none d-sm-table-cell">
+                            {{ $newMessages }} <i class="fas fa-envelope"></i>
                         </td>
                         <td class="d-none d-sm-table-cell">
-
+                            {{ $viewedMessages }} <i class="fas fa-envelope-open"></i>
                         </td>
                         <td>
                             <a href="{{route('admin.apartments.show', $apartment->slug)}}" title="Visualizza apartment" class="btn btn-sm btn-square btn-primary">
