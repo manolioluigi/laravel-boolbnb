@@ -54,7 +54,7 @@ class StoreApartmentRequest extends FormRequest
             'address.max' => 'Adress cannot excede 255 characters',
             'cover_img.image' => 'Input a Valid Imagine format',
             'cover_img.required' => 'Cover Imagine is Requied',
-            'cover_img.max' => 'L\'Imagine is Oversized'
+            'cover_img.max' => 'Imagine is Oversized'
         ];
     }
 }
