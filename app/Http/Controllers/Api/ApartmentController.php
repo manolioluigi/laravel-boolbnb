@@ -13,7 +13,7 @@ class ApartmentController extends Controller
         $apartments = Apartment::with('sponsorships', 'optionals')
         ->leftJoin('apartment_sponsorship', 'apartments.id', '=', 'apartment_sponsorship.apartment_id')
         ->orderByRaw('CASE WHEN apartment_sponsorship.id IS NULL THEN 1 ELSE 0 END')
-        ->paginate(3);
+        ->paginate(9);
 
         return response()->json([
             'success' => true,
