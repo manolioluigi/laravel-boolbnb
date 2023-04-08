@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 class ApartmentController extends Controller
 {
     public function index(){
-        $apartments = Apartment::with('sponsorships', 'optionals')->paginate(3);
+        $apartments = Apartment::with('sponsorships', 'optionals')->paginate(6);
 
         return response()->json([
             'success' => true,
