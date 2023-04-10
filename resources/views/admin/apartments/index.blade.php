@@ -23,10 +23,10 @@
             <table class="table table-striped text-center table-responsive">
                 <thead>
                     <tr class="bigger-text">
-                        <th>Title</th>
-                        <th class="d-none d-sm-table-cell">Sponsorship</th>
-                        <th class="d-none d-sm-table-cell">New Messages</th>
-                        <th class="d-none d-sm-table-cell">Old Messages</th>
+                        <th width="200">Title</th>
+                        <th class="d-none d-lg-table-cell">Sponsorship</th>
+                        <th class="d-none d-lg-table-cell">New Messages</th>
+                        <th class="d-none d-lg-table-cell">Old Messages</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -35,7 +35,7 @@
                     @if($apartment->user_id == $id)
                     <tr class="medium-text">
                         <td class="ellipsis ellipsis-cont">{{ $apartment->title }}</td>
-                        <td class="d-none d-sm-table-cell">
+                        <td class="d-none d-lg-table-cell">
                             @forelse ($apartment->sponsorships as $sponsorship)
                                 {{$sponsorship['name']}}
                             @empty
@@ -54,10 +54,10 @@
                                 @php $viewedMessages++ @endphp
                             @endif
                         @endforeach
-                        <td class="d-none d-sm-table-cell">
+                        <td class="d-none d-lg-table-cell">
                             {{ $newMessages }} <i class="fas fa-envelope"></i>
                         </td>
-                        <td class="d-none d-sm-table-cell">
+                        <td class="d-none d-lg-table-cell">
                             {{ $viewedMessages }} <i class="fas fa-envelope-open"></i>
                         </td>
                         <td>
